@@ -1,0 +1,11 @@
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.exe.config
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.exe
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.pdb
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.frm_main.resources
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Properties.Resources.resources
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_dangnhap.resources
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.csproj.GenerateResource.Cache
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.exe
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.pdb
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_docgia.resources
+D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_linhvuc.resources
