@@ -9,3 +9,15 @@ D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.exe
 D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.pdb
 D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_docgia.resources
 D:\TaiLieuCNTT-DHXD\DACNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_linhvuc.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.exe.config
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.exe
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.pdb
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.exe
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\bin\Debug\DoAnCNPM.pdb
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.frm_main.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Properties.Resources.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_linhvuc.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_capnhat_docgia.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_dangnhap.resources
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.csproj.GenerateResource.Cache
+C:\Users\TOAN\Documents\GitHub\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.csprojResolveAssemblyReference.cache

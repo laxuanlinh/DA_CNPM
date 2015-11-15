@@ -30,12 +30,12 @@ namespace DoAnCNPM
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void Inserttbl_docgia(tbl_docgia instance);
-    partial void Updatetbl_docgia(tbl_docgia instance);
-    partial void Deletetbl_docgia(tbl_docgia instance);
     partial void Inserttbl_tacgia(tbl_tacgia instance);
     partial void Updatetbl_tacgia(tbl_tacgia instance);
     partial void Deletetbl_tacgia(tbl_tacgia instance);
+    partial void Inserttbl_docgia(tbl_docgia instance);
+    partial void Updatetbl_docgia(tbl_docgia instance);
+    partial void Deletetbl_docgia(tbl_docgia instance);
     partial void Inserttbl_linhvuc(tbl_linhvuc instance);
     partial void Updatetbl_linhvuc(tbl_linhvuc instance);
     partial void Deletetbl_linhvuc(tbl_linhvuc instance);
@@ -54,7 +54,7 @@ namespace DoAnCNPM
     #endregion
 		
 		public QL_Thu_VienDataContext() : 
-				base(global::DoAnCNPM.Properties.Settings.Default.QL_Thu_VienConnectionString, mappingSource)
+				base(global::DoAnCNPM.Properties.Settings.Default.QL_Thu_VienConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -83,19 +83,19 @@ namespace DoAnCNPM
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<tbl_docgia> tbl_docgias
-		{
-			get
-			{
-				return this.GetTable<tbl_docgia>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tbl_tacgia> tbl_tacgias
 		{
 			get
 			{
 				return this.GetTable<tbl_tacgia>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tbl_docgia> tbl_docgias
+		{
+			get
+			{
+				return this.GetTable<tbl_docgia>();
 			}
 		}
 		
@@ -137,6 +137,168 @@ namespace DoAnCNPM
 			{
 				return this.GetTable<tbl_sach>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_tacgia")]
+	public partial class tbl_tacgia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _matg;
+		
+		private string _tentg;
+		
+		private string _gioitinh;
+		
+		private string _diachi;
+		
+		private EntitySet<tbl_sach> _tbl_saches;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnmatgChanging(int value);
+    partial void OnmatgChanged();
+    partial void OntentgChanging(string value);
+    partial void OntentgChanged();
+    partial void OngioitinhChanging(string value);
+    partial void OngioitinhChanged();
+    partial void OndiachiChanging(string value);
+    partial void OndiachiChanged();
+    #endregion
+		
+		public tbl_tacgia()
+		{
+			this._tbl_saches = new EntitySet<tbl_sach>(new Action<tbl_sach>(this.attach_tbl_saches), new Action<tbl_sach>(this.detach_tbl_saches));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matg", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int matg
+		{
+			get
+			{
+				return this._matg;
+			}
+			set
+			{
+				if ((this._matg != value))
+				{
+					this.OnmatgChanging(value);
+					this.SendPropertyChanging();
+					this._matg = value;
+					this.SendPropertyChanged("matg");
+					this.OnmatgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tentg", DbType="NVarChar(50)")]
+		public string tentg
+		{
+			get
+			{
+				return this._tentg;
+			}
+			set
+			{
+				if ((this._tentg != value))
+				{
+					this.OntentgChanging(value);
+					this.SendPropertyChanging();
+					this._tentg = value;
+					this.SendPropertyChanged("tentg");
+					this.OntentgChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gioitinh", DbType="NVarChar(3)")]
+		public string gioitinh
+		{
+			get
+			{
+				return this._gioitinh;
+			}
+			set
+			{
+				if ((this._gioitinh != value))
+				{
+					this.OngioitinhChanging(value);
+					this.SendPropertyChanging();
+					this._gioitinh = value;
+					this.SendPropertyChanged("gioitinh");
+					this.OngioitinhChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachi", DbType="NVarChar(100)")]
+		public string diachi
+		{
+			get
+			{
+				return this._diachi;
+			}
+			set
+			{
+				if ((this._diachi != value))
+				{
+					this.OndiachiChanging(value);
+					this.SendPropertyChanging();
+					this._diachi = value;
+					this.SendPropertyChanged("diachi");
+					this.OndiachiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_tacgia_tbl_sach", Storage="_tbl_saches", ThisKey="matg", OtherKey="matg")]
+		public EntitySet<tbl_sach> tbl_saches
+		{
+			get
+			{
+				return this._tbl_saches;
+			}
+			set
+			{
+				this._tbl_saches.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_saches(tbl_sach entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_tacgia = this;
+		}
+		
+		private void detach_tbl_saches(tbl_sach entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_tacgia = null;
 		}
 	}
 	
@@ -371,168 +533,6 @@ namespace DoAnCNPM
 		{
 			this.SendPropertyChanging();
 			entity.tbl_docgia = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_tacgia")]
-	public partial class tbl_tacgia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _matg;
-		
-		private string _tentg;
-		
-		private string _gioitinh;
-		
-		private string _diachi;
-		
-		private EntitySet<tbl_sach> _tbl_saches;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmatgChanging(int value);
-    partial void OnmatgChanged();
-    partial void OntentgChanging(string value);
-    partial void OntentgChanged();
-    partial void OngioitinhChanging(string value);
-    partial void OngioitinhChanged();
-    partial void OndiachiChanging(string value);
-    partial void OndiachiChanged();
-    #endregion
-		
-		public tbl_tacgia()
-		{
-			this._tbl_saches = new EntitySet<tbl_sach>(new Action<tbl_sach>(this.attach_tbl_saches), new Action<tbl_sach>(this.detach_tbl_saches));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matg", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int matg
-		{
-			get
-			{
-				return this._matg;
-			}
-			set
-			{
-				if ((this._matg != value))
-				{
-					this.OnmatgChanging(value);
-					this.SendPropertyChanging();
-					this._matg = value;
-					this.SendPropertyChanged("matg");
-					this.OnmatgChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tentg", DbType="NVarChar(50)")]
-		public string tentg
-		{
-			get
-			{
-				return this._tentg;
-			}
-			set
-			{
-				if ((this._tentg != value))
-				{
-					this.OntentgChanging(value);
-					this.SendPropertyChanging();
-					this._tentg = value;
-					this.SendPropertyChanged("tentg");
-					this.OntentgChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_gioitinh", DbType="NVarChar(3)")]
-		public string gioitinh
-		{
-			get
-			{
-				return this._gioitinh;
-			}
-			set
-			{
-				if ((this._gioitinh != value))
-				{
-					this.OngioitinhChanging(value);
-					this.SendPropertyChanging();
-					this._gioitinh = value;
-					this.SendPropertyChanged("gioitinh");
-					this.OngioitinhChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_diachi", DbType="NVarChar(100)")]
-		public string diachi
-		{
-			get
-			{
-				return this._diachi;
-			}
-			set
-			{
-				if ((this._diachi != value))
-				{
-					this.OndiachiChanging(value);
-					this.SendPropertyChanging();
-					this._diachi = value;
-					this.SendPropertyChanged("diachi");
-					this.OndiachiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_tacgia_tbl_sach", Storage="_tbl_saches", ThisKey="matg", OtherKey="matg")]
-		public EntitySet<tbl_sach> tbl_saches
-		{
-			get
-			{
-				return this._tbl_saches;
-			}
-			set
-			{
-				this._tbl_saches.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_tbl_saches(tbl_sach entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_tacgia = this;
-		}
-		
-		private void detach_tbl_saches(tbl_sach entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_tacgia = null;
 		}
 	}
 	
@@ -1036,6 +1036,8 @@ namespace DoAnCNPM
 		
 		private System.Nullable<bool> _xacnhantra;
 		
+		private string _ghichu;
+		
 		private EntityRef<tbl_docgia> _tbl_docgia;
 		
 		private EntityRef<tbl_sach> _tbl_sach;
@@ -1056,6 +1058,8 @@ namespace DoAnCNPM
     partial void OnngaytraChanged();
     partial void OnxacnhantraChanging(System.Nullable<bool> value);
     partial void OnxacnhantraChanged();
+    partial void OnghichuChanging(string value);
+    partial void OnghichuChanged();
     #endregion
 		
 		public tbl_phieumuon_tra()
@@ -1189,6 +1193,26 @@ namespace DoAnCNPM
 					this._xacnhantra = value;
 					this.SendPropertyChanged("xacnhantra");
 					this.OnxacnhantraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(300)")]
+		public string ghichu
+		{
+			get
+			{
+				return this._ghichu;
+			}
+			set
+			{
+				if ((this._ghichu != value))
+				{
+					this.OnghichuChanging(value);
+					this.SendPropertyChanging();
+					this._ghichu = value;
+					this.SendPropertyChanged("ghichu");
+					this.OnghichuChanged();
 				}
 			}
 		}

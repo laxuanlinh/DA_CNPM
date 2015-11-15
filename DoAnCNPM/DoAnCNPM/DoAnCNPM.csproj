@@ -61,12 +61,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\docgia_ett.cs" />
-    <Compile Include="Models\ErrorCode.cs" />
+    <Compile Include="Shareds\ErrorCode.cs" />
     <Compile Include="Models\linhvuc_ett.cs" />
     <Compile Include="Models\nhanvien_ett.cs" />
     <Compile Include="Models\nhaxuatban_ett.cs" />
     <Compile Include="Models\phieumuontra_ett.cs" />
-    <Compile Include="Models\Result.cs" />
+    <Compile Include="Shareds\Result.cs" />
     <Compile Include="Models\sach_ett.cs" />
     <Compile Include="Models\tacgia_ett.cs" />
     <Compile Include="Program.cs" />
@@ -77,6 +77,8 @@
       <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
     </Compile>
     <Compile Include="Shareds\Constants.cs" />
+    <Compile Include="Shareds\how_to_search.cs" />
+    <Compile Include="Shareds\Option.cs" />
     <Compile Include="Shareds\Utils.cs" />
     <Compile Include="Views\frm_capnhat_docgia.cs">
       <SubType>Form</SubType>
@@ -108,12 +110,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\frm_capnhat_linhvuc.resx">
-      <DependentUpon>frm_capnhat_linhvuc.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="QL_Thu_Vien.dbml.layout">
       <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Views\frm_capnhat_linhvuc.resx">
+      <DependentUpon>frm_capnhat_linhvuc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\frm_capnhat_docgia.resx">
       <DependentUpon>frm_capnhat_docgia.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_Thu_Vien" Class="QL_Thu_VienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=TOANTAM\SQLEXPRESS;Initial Catalog=QL_Thu_Vien;Integrated Security=True" SettingsObjectName="DoAnCNPM.Properties.Settings" SettingsPropertyName="QL_Thu_VienConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=QL_Thu_Vien;Integrated Security=True" SettingsObjectName="DoAnCNPM.Properties.Settings" SettingsPropertyName="QL_Thu_VienConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_tacgia" Member="tbl_tacgias">
+    <Type Name="tbl_tacgia">
+      <Column Name="matg" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tentg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gioitinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="diachi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="tbl_tacgia_tbl_sach" Member="tbl_saches" ThisKey="matg" OtherKey="matg" Type="tbl_sach" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_docgia" Member="tbl_docgias">
     <Type Name="tbl_docgia">
       <Column Name="madg" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -10,15 +19,6 @@
       <Column Name="diachi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="tbl_docgia_tbl_phieumuon_tra" Member="tbl_phieumuon_tras" ThisKey="madg" OtherKey="madg" Type="tbl_phieumuon_tra" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tbl_tacgia" Member="tbl_tacgias">
-    <Type Name="tbl_tacgia">
-      <Column Name="matg" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tentg" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="gioitinh" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Column Name="diachi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="tbl_tacgia_tbl_sach" Member="tbl_saches" ThisKey="matg" OtherKey="matg" Type="tbl_sach" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_linhvuc" Member="tbl_linhvucs">
@@ -56,6 +56,7 @@
       <Column Name="ngaymuon" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="ngaytra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="xacnhantra" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
       <Association Name="tbl_docgia_tbl_phieumuon_tra" Member="tbl_docgia" ThisKey="madg" OtherKey="madg" Type="tbl_docgia" IsForeignKey="true" />
       <Association Name="tbl_sach_tbl_phieumuon_tra" Member="tbl_sach" ThisKey="masach" OtherKey="masach" Type="tbl_sach" IsForeignKey="true" />
     </Type>

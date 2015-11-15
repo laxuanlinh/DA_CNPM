@@ -33,5 +33,15 @@ namespace DoAnCNPM.Properties {
                 return ((string)(this["QL_Thu_VienConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=QL_Thu_Vien;Integrated Security=True")]
+        public string QL_Thu_VienConnectionString1 {
+            get {
+                return ((string)(this["QL_Thu_VienConnectionString1"]));
+            }
+        }
     }
 }

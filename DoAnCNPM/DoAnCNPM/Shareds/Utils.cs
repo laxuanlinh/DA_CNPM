@@ -9,6 +9,25 @@ namespace DoAnCNPM.Shareds
 {
     class Utils
     {
+        public static void add_form_to_panel(Form f, Panel p)
+        {
+            p.Controls.Clear();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            p.Controls.Add(f);
+            f.Show();
+        }
+
+        public static void chang_title_datagridViewCell(DataGridView dtgv, List<string> title_cell)
+        {
+            dtgv.ColumnHeadersVisible = true;
+            int i = 0;
+            foreach (string item in title_cell)
+            {
+                dtgv.Columns[i].HeaderText = item;
+            }
+        }
+
         #region "dialog"
         public static bool switch_false()
         {
@@ -23,5 +42,41 @@ namespace DoAnCNPM.Shareds
             return MessageBox.Show(Constants.confirm_exit, Constants.warning_caption, MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes;
         }
         #endregion
+
+        public static void readOnly_text_box(List<TextBox> t, bool check)
+        {
+            if (check)
+            {
+                foreach (TextBox item in t)
+                {
+                    item.ReadOnly = true;
+                }
+            }
+            else
+            {
+                foreach (TextBox item in t)
+                {
+                    item.ReadOnly = false;
+                }
+            }
+           
+        }
+
+        public static void erase_text_box(List<TextBox> t)
+        {
+            foreach (TextBox item in t)
+            {
+                item.Text = "";
+            }
+        }
+
+        public static DialogResult err_duplicate_data() {
+            return MessageBox.Show("Mã đã tồn tại! bạn không thể thêm cơ sở dữ liệu! ");
+        }
+
+        public static DialogResult err_no_duplicate_data()
+        {
+            return MessageBox.Show("Mã không tồn tại! bạn không thể sửa thông tin ở 1 bản ghi không tồn tại! ");
+        }
     }
 }

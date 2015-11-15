@@ -59,7 +59,8 @@ create table tbl_phieumuon_tra(
 	masach int foreign key references tbl_sach(masach),
 	ngaymuon date,
 	ngaytra date,
-	xacnhantra bit
+	xacnhantra bit,
+	ghichu nvarchar(300)
 )
 
 insert into tbl_nhanvien(tennv, diachi, dienthoai, email, chucvu, tuoi) values('admin', N'Hà Nội', '0987491230', 'toannvnuce@gmail.com', N'Thủ thư', 22);
