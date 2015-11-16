@@ -60,7 +60,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\chitietphieu_ett.cs" />
     <Compile Include="Models\docgia_ett.cs" />
+    <Compile Include="QL_Thu_Vien.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Shareds\ErrorCode.cs" />
     <Compile Include="Models\linhvuc_ett.cs" />
     <Compile Include="Models\nhanvien_ett.cs" />
@@ -71,11 +77,6 @@
     <Compile Include="Models\tacgia_ett.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QL_Thu_Vien.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Shareds\Constants.cs" />
     <Compile Include="Shareds\how_to_search.cs" />
     <Compile Include="Shareds\Option.cs" />
@@ -85,6 +86,30 @@
     </Compile>
     <Compile Include="Views\frm_capnhat_docgia.Designer.cs">
       <DependentUpon>frm_capnhat_docgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_nhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_nhanvien.Designer.cs">
+      <DependentUpon>frm_capnhat_nhanvien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_nxb.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_nxb.Designer.cs">
+      <DependentUpon>frm_capnhat_nxb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_sach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_sach.Designer.cs">
+      <DependentUpon>frm_capnhat_sach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_tacgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_capnhat_tacgia.Designer.cs">
+      <DependentUpon>frm_capnhat_tacgia.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\frm_dangnhap.cs">
       <SubType>Form</SubType>
@@ -98,6 +123,12 @@
     <Compile Include="Views\frm_capnhat_linhvuc.Designer.cs">
       <DependentUpon>frm_capnhat_linhvuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frm_timkiem_sach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_timkiem_sach.Designer.cs">
+      <DependentUpon>frm_timkiem_sach.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -109,7 +140,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\frm_timkiem_sach.resx">
+      <DependentUpon>frm_timkiem_sach.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="QL_Thu_Vien.dbml.layout">
       <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
     </None>
@@ -118,6 +153,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frm_capnhat_docgia.resx">
       <DependentUpon>frm_capnhat_docgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_capnhat_nhanvien.resx">
+      <DependentUpon>frm_capnhat_nhanvien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_capnhat_nxb.resx">
+      <DependentUpon>frm_capnhat_nxb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_capnhat_sach.resx">
+      <DependentUpon>frm_capnhat_sach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_capnhat_tacgia.resx">
+      <DependentUpon>frm_capnhat_tacgia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frm_dangnhap.resx">
       <DependentUpon>frm_dangnhap.cs</DependentUpon>
@@ -140,9 +187,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Huy.png" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Luu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Them.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thoat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Xoa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

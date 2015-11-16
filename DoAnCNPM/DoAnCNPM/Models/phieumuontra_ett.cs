@@ -10,29 +10,32 @@ namespace DoAnCNPM.Models
     {
         public int sophieumuon { get; set; }
         public int madg { get; set; }
-        public int masach { get; set; }
+        public int manv { get; set; }
         public string ngaymuon { get; set; }
         public string ngaytra { get; set; }
         public bool xacnhantra { get; set; }
+        public string ghichu { get; set; }
 
         public phieumuontra_ett() { }
         public phieumuontra_ett(tbl_phieumuon_tra phieu)
         {
             sophieumuon = phieu.sophieumuon;
             madg = (int)phieu.madg;
-            masach = (int)phieu.masach;
-            ngaymuon = phieu.ngaymuon.ToString();
-            ngaytra = phieu.ngaytra.ToString();
+            manv = (int)phieu.manv;
+            ngaymuon = phieu.ngaymuon;
+            ngaytra = phieu.ngaytra;
             xacnhantra = (bool)phieu.xacnhantra;
+            ghichu = phieu.ghichu;
         }
-        public phieumuontra_ett(int sopm, int madg, int masach, string ngaymuon, string ngaytra, bool xacnhantra)
+        public phieumuontra_ett(int sopm, int madg, int manv, string ngaymuon, string ngaytra, bool xacnhantra, string ghichu)
         {
             sophieumuon = sopm;
             this.madg = madg;
-            this.masach = masach;
+            this.manv = manv;
             this.ngaymuon = ngaymuon;
             this.ngaytra = ngaytra;
             this.xacnhantra = xacnhantra;
+            this.ghichu = ghichu;
         }
     }
 }

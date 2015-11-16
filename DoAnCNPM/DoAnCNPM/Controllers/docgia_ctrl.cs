@@ -58,7 +58,7 @@ namespace DoAnCNPM.Controllers
                 temp.tendg = docgia.tendocgia;
                 temp.lop = docgia.lop;
                 temp.gioitinh = docgia.gioitinh;
-                temp.ngaysinh = DateTime.Parse(docgia.ngaysinh);
+                temp.ngaysinh = docgia.ngaysinh;
                 temp.email = docgia.email;
                 temp.diachi = docgia.diachi;
 
@@ -126,7 +126,7 @@ namespace DoAnCNPM.Controllers
                 }
                 if (docgia.ngaysinh != null && docgia.ngaysinh != "")
                 {
-                    dt.ngaysinh = DateTime.Parse(docgia.ngaysinh);
+                    dt.ngaysinh = docgia.ngaysinh;
                 }
                 if (docgia.gioitinh != null && docgia.gioitinh != "")
                 {
@@ -145,6 +145,7 @@ namespace DoAnCNPM.Controllers
                     dt.email = docgia.email;
                 }
 
+                db.SubmitChanges();
                 rs.data = true;
                 rs.errcode = ErrorCode.sucess;
                 return rs;

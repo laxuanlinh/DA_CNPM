@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt_tendocgia = new System.Windows.Forms.TextBox();
-            this.txt_ngaysinh = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,17 +43,18 @@
             this.btn_them = new System.Windows.Forms.Button();
             this.dtgv = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbx_gioitinh = new System.Windows.Forms.ComboBox();
+            this.dtpk_ngaysinh = new System.Windows.Forms.DateTimePicker();
             this.btn_thoat = new System.Windows.Forms.Button();
             this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_gioitinh = new System.Windows.Forms.TextBox();
             this.txt_lop = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
+            this.txt_madocgia = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbx_option_search = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_madocgia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -83,25 +83,17 @@
             // txt_tendocgia
             // 
             this.txt_tendocgia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_tendocgia.Location = new System.Drawing.Point(91, 70);
+            this.txt_tendocgia.Location = new System.Drawing.Point(91, 76);
             this.txt_tendocgia.Name = "txt_tendocgia";
             this.txt_tendocgia.Size = new System.Drawing.Size(158, 25);
             this.txt_tendocgia.TabIndex = 1;
-            // 
-            // txt_ngaysinh
-            // 
-            this.txt_ngaysinh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ngaysinh.Location = new System.Drawing.Point(91, 111);
-            this.txt_ngaysinh.Name = "txt_ngaysinh";
-            this.txt_ngaysinh.Size = new System.Drawing.Size(158, 25);
-            this.txt_ngaysinh.TabIndex = 2;
             // 
             // label
             // 
             this.label.AutoSize = true;
             this.label.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label.Location = new System.Drawing.Point(16, 73);
+            this.label.Location = new System.Drawing.Point(16, 79);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(77, 17);
             this.label.TabIndex = 2;
@@ -112,7 +104,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(16, 150);
+            this.label4.Location = new System.Drawing.Point(16, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 17);
             this.label4.TabIndex = 2;
@@ -123,7 +115,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(16, 114);
+            this.label3.Location = new System.Drawing.Point(16, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 2;
@@ -151,62 +143,72 @@
             // 
             // btn_huy
             // 
+            this.btn_huy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_huy.BackgroundImage = global::DoAnCNPM.Properties.Resources.Huy;
+            this.btn_huy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_huy.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_huy.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_huy.Location = new System.Drawing.Point(351, 207);
             this.btn_huy.Name = "btn_huy";
-            this.btn_huy.Size = new System.Drawing.Size(75, 53);
+            this.btn_huy.Size = new System.Drawing.Size(75, 59);
             this.btn_huy.TabIndex = 11;
-            this.btn_huy.Text = "Hủy";
-            this.btn_huy.UseVisualStyleBackColor = true;
+            this.btn_huy.UseVisualStyleBackColor = false;
             this.btn_huy.Click += new System.EventHandler(this.btn_huy_Click);
             // 
             // btn_xoa
             // 
+            this.btn_xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_xoa.BackgroundImage = global::DoAnCNPM.Properties.Resources.Xoa;
+            this.btn_xoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_xoa.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_xoa.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_xoa.Location = new System.Drawing.Point(182, 207);
             this.btn_xoa.Name = "btn_xoa";
-            this.btn_xoa.Size = new System.Drawing.Size(75, 53);
+            this.btn_xoa.Size = new System.Drawing.Size(75, 59);
             this.btn_xoa.TabIndex = 10;
-            this.btn_xoa.Text = "Xóa";
-            this.btn_xoa.UseVisualStyleBackColor = true;
+            this.btn_xoa.UseVisualStyleBackColor = false;
             this.btn_xoa.Click += new System.EventHandler(this.btn_xoa_Click);
             // 
             // btn_luu
             // 
+            this.btn_luu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_luu.BackgroundImage = global::DoAnCNPM.Properties.Resources.Luu;
+            this.btn_luu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_luu.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_luu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_luu.Location = new System.Drawing.Point(268, 207);
             this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(75, 53);
+            this.btn_luu.Size = new System.Drawing.Size(75, 59);
             this.btn_luu.TabIndex = 7;
-            this.btn_luu.Text = "Lưu";
-            this.btn_luu.UseVisualStyleBackColor = true;
+            this.btn_luu.UseVisualStyleBackColor = false;
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
             // btn_sua
             // 
+            this.btn_sua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btn_sua.BackgroundImage = global::DoAnCNPM.Properties.Resources.sua;
+            this.btn_sua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_sua.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_sua.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_sua.Location = new System.Drawing.Point(99, 207);
             this.btn_sua.Name = "btn_sua";
-            this.btn_sua.Size = new System.Drawing.Size(75, 53);
+            this.btn_sua.Size = new System.Drawing.Size(75, 59);
             this.btn_sua.TabIndex = 9;
-            this.btn_sua.Text = "Sửa";
-            this.btn_sua.UseVisualStyleBackColor = true;
+            this.btn_sua.UseVisualStyleBackColor = false;
             this.btn_sua.Click += new System.EventHandler(this.btn_sua_Click);
             // 
             // btn_them
             // 
+            this.btn_them.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_them.BackgroundImage = global::DoAnCNPM.Properties.Resources.Them;
+            this.btn_them.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_them.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_them.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_them.Location = new System.Drawing.Point(16, 207);
             this.btn_them.Name = "btn_them";
-            this.btn_them.Size = new System.Drawing.Size(75, 53);
+            this.btn_them.Size = new System.Drawing.Size(75, 59);
             this.btn_them.TabIndex = 8;
-            this.btn_them.Text = "Thêm ";
-            this.btn_them.UseVisualStyleBackColor = true;
+            this.btn_them.UseVisualStyleBackColor = false;
             this.btn_them.Click += new System.EventHandler(this.btn_them_Click);
             // 
             // dtgv
@@ -224,6 +226,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbx_gioitinh);
+            this.groupBox1.Controls.Add(this.dtpk_ngaysinh);
             this.groupBox1.Controls.Add(this.btn_thoat);
             this.groupBox1.Controls.Add(this.btn_huy);
             this.groupBox1.Controls.Add(this.btn_xoa);
@@ -231,12 +235,10 @@
             this.groupBox1.Controls.Add(this.btn_sua);
             this.groupBox1.Controls.Add(this.btn_them);
             this.groupBox1.Controls.Add(this.txt_email);
-            this.groupBox1.Controls.Add(this.txt_gioitinh);
             this.groupBox1.Controls.Add(this.txt_lop);
             this.groupBox1.Controls.Add(this.txt_diachi);
             this.groupBox1.Controls.Add(this.txt_madocgia);
             this.groupBox1.Controls.Add(this.txt_tendocgia);
-            this.groupBox1.Controls.Add(this.txt_ngaysinh);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label8);
@@ -252,33 +254,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết độc giả";
             // 
+            // cbx_gioitinh
+            // 
+            this.cbx_gioitinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_gioitinh.FormattingEnabled = true;
+            this.cbx_gioitinh.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.cbx_gioitinh.Location = new System.Drawing.Point(91, 114);
+            this.cbx_gioitinh.Name = "cbx_gioitinh";
+            this.cbx_gioitinh.Size = new System.Drawing.Size(158, 25);
+            this.cbx_gioitinh.TabIndex = 2;
+            // 
+            // dtpk_ngaysinh
+            // 
+            this.dtpk_ngaysinh.CustomFormat = "dd-MM-yyyy";
+            this.dtpk_ngaysinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpk_ngaysinh.Location = new System.Drawing.Point(91, 157);
+            this.dtpk_ngaysinh.Name = "dtpk_ngaysinh";
+            this.dtpk_ngaysinh.Size = new System.Drawing.Size(158, 25);
+            this.dtpk_ngaysinh.TabIndex = 3;
+            this.dtpk_ngaysinh.Value = new System.DateTime(1993, 1, 1, 9, 44, 0, 0);
+            // 
             // btn_thoat
             // 
+            this.btn_thoat.BackColor = System.Drawing.Color.Red;
+            this.btn_thoat.BackgroundImage = global::DoAnCNPM.Properties.Resources.Thoat;
+            this.btn_thoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_thoat.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_thoat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_thoat.Location = new System.Drawing.Point(431, 207);
             this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(75, 53);
+            this.btn_thoat.Size = new System.Drawing.Size(75, 59);
             this.btn_thoat.TabIndex = 12;
-            this.btn_thoat.Text = "Thoát";
-            this.btn_thoat.UseVisualStyleBackColor = true;
+            this.btn_thoat.UseVisualStyleBackColor = false;
             this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
             // 
             // txt_email
             // 
             this.txt_email.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(348, 119);
+            this.txt_email.Location = new System.Drawing.Point(348, 158);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(158, 25);
             this.txt_email.TabIndex = 6;
-            // 
-            // txt_gioitinh
-            // 
-            this.txt_gioitinh.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_gioitinh.Location = new System.Drawing.Point(91, 150);
-            this.txt_gioitinh.Name = "txt_gioitinh";
-            this.txt_gioitinh.Size = new System.Drawing.Size(158, 25);
-            this.txt_gioitinh.TabIndex = 3;
             // 
             // txt_lop
             // 
@@ -292,9 +310,21 @@
             // 
             this.txt_diachi.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_diachi.Location = new System.Drawing.Point(348, 80);
+            this.txt_diachi.Multiline = true;
             this.txt_diachi.Name = "txt_diachi";
-            this.txt_diachi.Size = new System.Drawing.Size(158, 25);
+            this.txt_diachi.Size = new System.Drawing.Size(158, 59);
             this.txt_diachi.TabIndex = 5;
+            // 
+            // txt_madocgia
+            // 
+            this.txt_madocgia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_madocgia.Location = new System.Drawing.Point(91, 36);
+            this.txt_madocgia.Name = "txt_madocgia";
+            this.txt_madocgia.ReadOnly = true;
+            this.txt_madocgia.Size = new System.Drawing.Size(158, 25);
+            this.txt_madocgia.TabIndex = 1;
+            this.txt_madocgia.TabIndexChanged += new System.EventHandler(this.txt_madocgia_TextChanged);
+            this.txt_madocgia.TextChanged += new System.EventHandler(this.txt_madocgia_TextChanged);
             // 
             // label9
             // 
@@ -307,12 +337,23 @@
             this.label9.TabIndex = 2;
             this.label9.Text = "Lớp";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(16, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 17);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Mã độc giả";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label8.Location = new System.Drawing.Point(273, 119);
+            this.label8.Location = new System.Drawing.Point(273, 160);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 17);
             this.label8.TabIndex = 2;
@@ -344,26 +385,6 @@
             this.cbx_option_search.Size = new System.Drawing.Size(110, 25);
             this.cbx_option_search.TabIndex = 14;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(16, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Mã độc giả";
-            // 
-            // txt_madocgia
-            // 
-            this.txt_madocgia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_madocgia.Location = new System.Drawing.Point(91, 36);
-            this.txt_madocgia.Name = "txt_madocgia";
-            this.txt_madocgia.ReadOnly = true;
-            this.txt_madocgia.Size = new System.Drawing.Size(158, 25);
-            this.txt_madocgia.TabIndex = 1;
-            // 
             // frm_capnhat_docgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,7 +414,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_tendocgia;
-        private System.Windows.Forms.TextBox txt_ngaysinh;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -407,7 +427,6 @@
         private System.Windows.Forms.DataGridView dtgv;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_thoat;
-        private System.Windows.Forms.TextBox txt_gioitinh;
         private System.Windows.Forms.ComboBox cbx_option_search;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.TextBox txt_lop;
@@ -417,5 +436,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_madocgia;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpk_ngaysinh;
+        private System.Windows.Forms.ComboBox cbx_gioitinh;
     }
 }

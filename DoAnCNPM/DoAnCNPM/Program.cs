@@ -17,7 +17,7 @@ namespace DoAnCNPM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_capnhat_docgia());
+            Application.Run(new frm_main());
         }
     }
 }

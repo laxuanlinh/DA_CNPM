@@ -54,7 +54,7 @@ namespace DoAnCNPM
     #endregion
 		
 		public QL_Thu_VienDataContext() : 
-				base(global::DoAnCNPM.Properties.Settings.Default.QL_Thu_VienConnectionString1, mappingSource)
+				base(global::DoAnCNPM.Properties.Settings.Default.QL_Thu_VienConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -81,6 +81,14 @@ namespace DoAnCNPM
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<tbl_chitietphieu> tbl_chitietphieus
+		{
+			get
+			{
+				return this.GetTable<tbl_chitietphieu>();
+			}
 		}
 		
 		public System.Data.Linq.Table<tbl_tacgia> tbl_tacgias
@@ -136,6 +144,69 @@ namespace DoAnCNPM
 			get
 			{
 				return this.GetTable<tbl_sach>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_chitietphieu")]
+	public partial class tbl_chitietphieu
+	{
+		
+		private System.Nullable<int> _sophieumuon;
+		
+		private System.Nullable<int> _masach;
+		
+		private string _trangthaisach;
+		
+		public tbl_chitietphieu()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sophieumuon", DbType="Int")]
+		public System.Nullable<int> sophieumuon
+		{
+			get
+			{
+				return this._sophieumuon;
+			}
+			set
+			{
+				if ((this._sophieumuon != value))
+				{
+					this._sophieumuon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masach", DbType="Int")]
+		public System.Nullable<int> masach
+		{
+			get
+			{
+				return this._masach;
+			}
+			set
+			{
+				if ((this._masach != value))
+				{
+					this._masach = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trangthaisach", DbType="NVarChar(50)")]
+		public string trangthaisach
+		{
+			get
+			{
+				return this._trangthaisach;
+			}
+			set
+			{
+				if ((this._trangthaisach != value))
+				{
+					this._trangthaisach = value;
+				}
 			}
 		}
 	}
@@ -312,7 +383,7 @@ namespace DoAnCNPM
 		
 		private string _tendg;
 		
-		private System.Nullable<System.DateTime> _ngaysinh;
+		private string _ngaysinh;
 		
 		private string _gioitinh;
 		
@@ -332,7 +403,7 @@ namespace DoAnCNPM
     partial void OnmadgChanged();
     partial void OntendgChanging(string value);
     partial void OntendgChanged();
-    partial void OnngaysinhChanging(System.Nullable<System.DateTime> value);
+    partial void OnngaysinhChanging(string value);
     partial void OnngaysinhChanged();
     partial void OngioitinhChanging(string value);
     partial void OngioitinhChanged();
@@ -390,8 +461,8 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaysinh", DbType="Date")]
-		public System.Nullable<System.DateTime> ngaysinh
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaysinh", DbType="VarChar(50)")]
+		public string ngaysinh
 		{
 			get
 			{
@@ -670,6 +741,12 @@ namespace DoAnCNPM
 		
 		private System.Nullable<int> _tuoi;
 		
+		private string _taikhoan;
+		
+		private string _matkhau;
+		
+		private EntitySet<tbl_phieumuon_tra> _tbl_phieumuon_tras;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -688,10 +765,15 @@ namespace DoAnCNPM
     partial void OnchucvuChanged();
     partial void OntuoiChanging(System.Nullable<int> value);
     partial void OntuoiChanged();
+    partial void OntaikhoanChanging(string value);
+    partial void OntaikhoanChanged();
+    partial void OnmatkhauChanging(string value);
+    partial void OnmatkhauChanged();
     #endregion
 		
 		public tbl_nhanvien()
 		{
+			this._tbl_phieumuon_tras = new EntitySet<tbl_phieumuon_tra>(new Action<tbl_phieumuon_tra>(this.attach_tbl_phieumuon_tras), new Action<tbl_phieumuon_tra>(this.detach_tbl_phieumuon_tras));
 			OnCreated();
 		}
 		
@@ -835,6 +917,59 @@ namespace DoAnCNPM
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_taikhoan", DbType="VarChar(50)")]
+		public string taikhoan
+		{
+			get
+			{
+				return this._taikhoan;
+			}
+			set
+			{
+				if ((this._taikhoan != value))
+				{
+					this.OntaikhoanChanging(value);
+					this.SendPropertyChanging();
+					this._taikhoan = value;
+					this.SendPropertyChanged("taikhoan");
+					this.OntaikhoanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matkhau", DbType="NVarChar(50)")]
+		public string matkhau
+		{
+			get
+			{
+				return this._matkhau;
+			}
+			set
+			{
+				if ((this._matkhau != value))
+				{
+					this.OnmatkhauChanging(value);
+					this.SendPropertyChanging();
+					this._matkhau = value;
+					this.SendPropertyChanged("matkhau");
+					this.OnmatkhauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_nhanvien_tbl_phieumuon_tra", Storage="_tbl_phieumuon_tras", ThisKey="manv", OtherKey="manv")]
+		public EntitySet<tbl_phieumuon_tra> tbl_phieumuon_tras
+		{
+			get
+			{
+				return this._tbl_phieumuon_tras;
+			}
+			set
+			{
+				this._tbl_phieumuon_tras.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -853,6 +988,18 @@ namespace DoAnCNPM
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_phieumuon_tras(tbl_phieumuon_tra entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_nhanvien = this;
+		}
+		
+		private void detach_tbl_phieumuon_tras(tbl_phieumuon_tra entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_nhanvien = null;
 		}
 	}
 	
@@ -1028,11 +1175,11 @@ namespace DoAnCNPM
 		
 		private System.Nullable<int> _madg;
 		
-		private System.Nullable<int> _masach;
+		private System.Nullable<int> _manv;
 		
-		private System.Nullable<System.DateTime> _ngaymuon;
+		private string _ngaymuon;
 		
-		private System.Nullable<System.DateTime> _ngaytra;
+		private string _ngaytra;
 		
 		private System.Nullable<bool> _xacnhantra;
 		
@@ -1040,7 +1187,7 @@ namespace DoAnCNPM
 		
 		private EntityRef<tbl_docgia> _tbl_docgia;
 		
-		private EntityRef<tbl_sach> _tbl_sach;
+		private EntityRef<tbl_nhanvien> _tbl_nhanvien;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1050,11 +1197,11 @@ namespace DoAnCNPM
     partial void OnsophieumuonChanged();
     partial void OnmadgChanging(System.Nullable<int> value);
     partial void OnmadgChanged();
-    partial void OnmasachChanging(System.Nullable<int> value);
-    partial void OnmasachChanged();
-    partial void OnngaymuonChanging(System.Nullable<System.DateTime> value);
+    partial void OnmanvChanging(System.Nullable<int> value);
+    partial void OnmanvChanged();
+    partial void OnngaymuonChanging(string value);
     partial void OnngaymuonChanged();
-    partial void OnngaytraChanging(System.Nullable<System.DateTime> value);
+    partial void OnngaytraChanging(string value);
     partial void OnngaytraChanged();
     partial void OnxacnhantraChanging(System.Nullable<bool> value);
     partial void OnxacnhantraChanged();
@@ -1065,7 +1212,7 @@ namespace DoAnCNPM
 		public tbl_phieumuon_tra()
 		{
 			this._tbl_docgia = default(EntityRef<tbl_docgia>);
-			this._tbl_sach = default(EntityRef<tbl_sach>);
+			this._tbl_nhanvien = default(EntityRef<tbl_nhanvien>);
 			OnCreated();
 		}
 		
@@ -1113,32 +1260,32 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masach", DbType="Int")]
-		public System.Nullable<int> masach
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_manv", DbType="Int")]
+		public System.Nullable<int> manv
 		{
 			get
 			{
-				return this._masach;
+				return this._manv;
 			}
 			set
 			{
-				if ((this._masach != value))
+				if ((this._manv != value))
 				{
-					if (this._tbl_sach.HasLoadedOrAssignedValue)
+					if (this._tbl_nhanvien.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnmasachChanging(value);
+					this.OnmanvChanging(value);
 					this.SendPropertyChanging();
-					this._masach = value;
-					this.SendPropertyChanged("masach");
-					this.OnmasachChanged();
+					this._manv = value;
+					this.SendPropertyChanged("manv");
+					this.OnmanvChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaymuon", DbType="Date")]
-		public System.Nullable<System.DateTime> ngaymuon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaymuon", DbType="VarChar(50)")]
+		public string ngaymuon
 		{
 			get
 			{
@@ -1157,8 +1304,8 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaytra", DbType="Date")]
-		public System.Nullable<System.DateTime> ngaytra
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaytra", DbType="VarChar(50)")]
+		public string ngaytra
 		{
 			get
 			{
@@ -1251,36 +1398,36 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_sach_tbl_phieumuon_tra", Storage="_tbl_sach", ThisKey="masach", OtherKey="masach", IsForeignKey=true)]
-		public tbl_sach tbl_sach
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_nhanvien_tbl_phieumuon_tra", Storage="_tbl_nhanvien", ThisKey="manv", OtherKey="manv", IsForeignKey=true)]
+		public tbl_nhanvien tbl_nhanvien
 		{
 			get
 			{
-				return this._tbl_sach.Entity;
+				return this._tbl_nhanvien.Entity;
 			}
 			set
 			{
-				tbl_sach previousValue = this._tbl_sach.Entity;
+				tbl_nhanvien previousValue = this._tbl_nhanvien.Entity;
 				if (((previousValue != value) 
-							|| (this._tbl_sach.HasLoadedOrAssignedValue == false)))
+							|| (this._tbl_nhanvien.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._tbl_sach.Entity = null;
+						this._tbl_nhanvien.Entity = null;
 						previousValue.tbl_phieumuon_tras.Remove(this);
 					}
-					this._tbl_sach.Entity = value;
+					this._tbl_nhanvien.Entity = value;
 					if ((value != null))
 					{
 						value.tbl_phieumuon_tras.Add(this);
-						this._masach = value.masach;
+						this._manv = value.manv;
 					}
 					else
 					{
-						this._masach = default(Nullable<int>);
+						this._manv = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("tbl_sach");
+					this.SendPropertyChanged("tbl_nhanvien");
 				}
 			}
 		}
@@ -1326,9 +1473,7 @@ namespace DoAnCNPM
 		
 		private System.Nullable<int> _soluong;
 		
-		private System.Nullable<System.DateTime> _ngaynhap;
-		
-		private EntitySet<tbl_phieumuon_tra> _tbl_phieumuon_tras;
+		private string _ngaynhap;
 		
 		private EntityRef<tbl_linhvuc> _tbl_linhvuc;
 		
@@ -1354,13 +1499,12 @@ namespace DoAnCNPM
     partial void OnsotrangChanged();
     partial void OnsoluongChanging(System.Nullable<int> value);
     partial void OnsoluongChanged();
-    partial void OnngaynhapChanging(System.Nullable<System.DateTime> value);
+    partial void OnngaynhapChanging(string value);
     partial void OnngaynhapChanged();
     #endregion
 		
 		public tbl_sach()
 		{
-			this._tbl_phieumuon_tras = new EntitySet<tbl_phieumuon_tra>(new Action<tbl_phieumuon_tra>(this.attach_tbl_phieumuon_tras), new Action<tbl_phieumuon_tra>(this.detach_tbl_phieumuon_tras));
 			this._tbl_linhvuc = default(EntityRef<tbl_linhvuc>);
 			this._tbl_nxb = default(EntityRef<tbl_nxb>);
 			this._tbl_tacgia = default(EntityRef<tbl_tacgia>);
@@ -1519,8 +1663,8 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaynhap", DbType="Date")]
-		public System.Nullable<System.DateTime> ngaynhap
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngaynhap", DbType="VarChar(50)")]
+		public string ngaynhap
 		{
 			get
 			{
@@ -1536,19 +1680,6 @@ namespace DoAnCNPM
 					this.SendPropertyChanged("ngaynhap");
 					this.OnngaynhapChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_sach_tbl_phieumuon_tra", Storage="_tbl_phieumuon_tras", ThisKey="masach", OtherKey="masach")]
-		public EntitySet<tbl_phieumuon_tra> tbl_phieumuon_tras
-		{
-			get
-			{
-				return this._tbl_phieumuon_tras;
-			}
-			set
-			{
-				this._tbl_phieumuon_tras.Assign(value);
 			}
 		}
 		
@@ -1672,18 +1803,6 @@ namespace DoAnCNPM
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tbl_phieumuon_tras(tbl_phieumuon_tra entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_sach = this;
-		}
-		
-		private void detach_tbl_phieumuon_tras(tbl_phieumuon_tra entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_sach = null;
 		}
 	}
 }

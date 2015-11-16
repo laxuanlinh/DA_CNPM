@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DoAnCNPM.Controllers;
+using DoAnCNPM.Models;
+using DoAnCNPM.Shareds;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,50 +10,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DoAnCNPM.Controllers;
-using DoAnCNPM.Shareds;
-using DoAnCNPM.Models;
 
 namespace DoAnCNPM.Views
 {
-    public partial class frm_capnhat_docgia : Form
+    public partial class frm_capnhat_nhanvien : Form
     {
+
         // enum variable used for select option
         private Option option = Option.Nodata;
 
-        private docgia_ctrl docgia_ctrl = new docgia_ctrl();
+        private nhanvien_ctrl nhanvien_ctrl = new nhanvien_ctrl();
 
         // uses for save data from all textboxs
-        private docgia_ett docgia_ett = new docgia_ett();
+        private nhanvien_ett nhanvien_ett = new nhanvien_ett();
 
 
         // set value to caculate later on
         private void get_info()
         {
-            if (txt_madocgia.Text != null && txt_madocgia.Text != "")
+            if (txt_manv.Text != null && txt_manv.Text != "")
             {
-                docgia_ett.madocgia = int.Parse(txt_madocgia.Text);
+                nhanvien_ett.manhanvien = int.Parse(txt_manv.Text);
             }
-            docgia_ett.tendocgia = txt_tendocgia.Text;
-            docgia_ett.ngaysinh = dtpk_ngaysinh.Text;
-            docgia_ett.lop = txt_lop.Text;
-            docgia_ett.gioitinh = cbx_gioitinh.Text;
-            docgia_ett.diachi = txt_diachi.Text;
-            docgia_ett.email = txt_email.Text;
+            nhanvien_ett.tennhanvien = txt_tennv.Text;
+            nhanvien_ett.diachi = txt_diachi.Text;
+            nhanvien_ett.sdt = txt_sdt.Text;
+            nhanvien_ett.chucvu = txt_chucvu.Text;
+            if (txt_tuoi.Text != null && txt_tuoi.Text != "")
+            {
+                nhanvien_ett.tuoi = int.Parse(txt_tuoi.Text);
+
+            }
+            nhanvien_ett.email = txt_email.Text;
+            nhanvien_ett.taikhoan = txt_taikhoan.Text;
+            nhanvien_ett.matkhau = txt_matkhau.Text;
         }
 
         //update data for dtgv
         private void load_data()
         {
-            var dt = docgia_ctrl.select_all_docgia();
+            var dt = nhanvien_ctrl.select_all_nhanvien();
             switch (dt.errcode)
             {
                 case Models.ErrorCode.NaN:
+                    MessageBox.Show(dt.errInfor);
                     dtgv.DataSource = dt.data;
                     break;
                 case Models.ErrorCode.sucess:
                     dtgv.DataSource = dt.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã ĐG", "Tên ĐG", "Ngày sinh", "Giới tính", "Lớp", "Địa chỉ", "Email" });
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã NV", "Tên NV", "Địa chỉ", "Điện thoại", "Email", "Chức vụ", "Tuổi", "Tài khoản", "Mật khẩu" });
                     break;
                 case Models.ErrorCode.fail:
                     if (Utils.switch_false())
@@ -63,24 +71,24 @@ namespace DoAnCNPM.Views
             }
         }
 
-        public frm_capnhat_docgia()
+        public frm_capnhat_nhanvien()
         {
             InitializeComponent();
-            Utils.readOnly_text_box(new List<TextBox>{ txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
-                btn_xoa.Visible = false;
-                btn_sua.Visible = false;
+            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, true);
+            btn_xoa.Visible = false;
+            btn_sua.Visible = false;
         }
 
-        
 
-        private void frm_capnhat_docgia_Load(object sender, EventArgs e)
+
+        private void frm_capnhat_nhanvien_Load(object sender, EventArgs e)
         {
             load_data();
 
             List<how_to_search> dt_source = new List<how_to_search>();
             dt_source.Add(new how_to_search("Họ tên", "hoten"));
-            dt_source.Add(new how_to_search("Lớp", "lop"));
-            dt_source.Add(new how_to_search("email", "email"));
+            dt_source.Add(new how_to_search("Chức vụ", "chucvu"));
+            dt_source.Add(new how_to_search("Tài khoản", "taikhoan"));
 
             cbx_option_search.DataSource = dt_source;
             cbx_option_search.DisplayMember = "value";
@@ -97,39 +105,44 @@ namespace DoAnCNPM.Views
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
-            Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,  txt_lop, txt_tendocgia });
-            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email,  txt_lop, txt_tendocgia }, true);
-            cbx_gioitinh.SelectedIndex = -1;
+            Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
+            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, true);
         }
 
         private void btn_them_Click(object sender, EventArgs e)
         {
-            Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,  txt_lop, txt_tendocgia });
-            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, false);
-            txt_tendocgia.Focus();
+            Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv, txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
+            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, false);
+            txt_tennv.Focus();
             option = Option.Insert;
 
         }
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >=0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow temp = dtgv.Rows[e.RowIndex];
-                txt_madocgia.Text = temp.Cells[0].Value.ToString();
-                txt_tendocgia.Text = temp.Cells[1].Value.ToString();
-                dtpk_ngaysinh.Text = temp.Cells[2].Value.ToString();
-                cbx_gioitinh.Text = temp.Cells[3].Value.ToString();
-                txt_lop.Text = temp.Cells[4].Value.ToString();
-                txt_diachi.Text = temp.Cells[5].Value.ToString();
-                txt_email.Text = temp.Cells[6].Value.ToString();
+                txt_manv.Text = temp.Cells[0].Value.ToString();
+                txt_tennv.Text = temp.Cells[1].Value.ToString();
+                txt_diachi.Text = temp.Cells[2].Value.ToString();
+                txt_sdt.Text = temp.Cells[3].Value.ToString();
+                txt_email.Text = temp.Cells[4].Value.ToString();
+                txt_chucvu.Text = temp.Cells[5].Value.ToString();
+                if (temp.Cells[6].Value != null && temp.Cells[6].Value != "")
+                {
+                    txt_tuoi.Text = temp.Cells[6].Value.ToString();
+                }
+                else txt_tuoi.Text = "";
+                txt_taikhoan.Text = temp.Cells[7].Value.ToString();
+                txt_matkhau.Text = temp.Cells[8].Value.ToString();
             }
         }
 
         private void txt_timkiem_TextChanged(object sender, EventArgs e)
         {
             var select_cbx = cbx_option_search.SelectedValue.ToString();
-            var temp = docgia_ctrl.select_docgia_fields(txt_timkiem.Text, select_cbx);
+            var temp = nhanvien_ctrl.select_nhanvien_fields(txt_timkiem.Text, select_cbx);
             switch (temp.errcode)
             {
                 case ErrorCode.NaN:
@@ -137,8 +150,7 @@ namespace DoAnCNPM.Views
                     break;
                 case ErrorCode.sucess:
                     dtgv.DataSource = temp.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã ĐG", "Tên ĐG", "Ngày sinh", "Giới tính", "Lớp", "Địa chỉ", "Email" });
-
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã NV", "Tên NV", "Địa chỉ", "Điện thoại", "Email", "Chức vụ", "Tuổi", "Tài khoản", "Mật khẩu" });
                     break;
                 case ErrorCode.fail:
                     dtgv.DataSource = temp.data;
@@ -155,7 +167,7 @@ namespace DoAnCNPM.Views
         private void btn_sua_Click(object sender, EventArgs e)
         {
             option = Option.Edit;
-            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, false);
+            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, false);
 
         }
 
@@ -174,7 +186,7 @@ namespace DoAnCNPM.Views
                     var data = dtgv.Rows;
                     foreach (DataGridViewRow item in data)
                     {
-                        if (int.Parse(item.Cells[0].Value.ToString()) == docgia_ett.madocgia)
+                        if (int.Parse(item.Cells[0].Value.ToString()) == nhanvien_ett.manhanvien)
                         {
                             check = false;
                         }
@@ -184,7 +196,7 @@ namespace DoAnCNPM.Views
                         Utils.err_duplicate_data();
                         break;
                     }
-                    var temp = docgia_ctrl.insert_docgia(docgia_ett);
+                    var temp = nhanvien_ctrl.insert_nhanvien(nhanvien_ett);
                     switch (temp.errcode)
                     {
                         case ErrorCode.NaN:
@@ -192,7 +204,7 @@ namespace DoAnCNPM.Views
                         case ErrorCode.sucess:
                             MessageBox.Show(Constants.success_insert);
                             load_data();
-                            Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email, txt_lop, txt_tendocgia });
+                            Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv, txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
                             break;
                         case ErrorCode.fail:
                             break;
@@ -208,7 +220,7 @@ namespace DoAnCNPM.Views
                     var data1 = dtgv.Rows;
                     foreach (DataGridViewRow item in data1)
                     {
-                        if (int.Parse(item.Cells[0].Value.ToString()) == docgia_ett.madocgia)
+                        if (int.Parse(item.Cells[0].Value.ToString()) == nhanvien_ett.manhanvien)
                         {
                             check1 = false;
                         }
@@ -218,7 +230,7 @@ namespace DoAnCNPM.Views
                         Utils.err_no_duplicate_data();
                         break;
                     }
-                    var temp1 = docgia_ctrl.edit_docgia(docgia_ett);
+                    var temp1 = nhanvien_ctrl.edit_nhanvien(nhanvien_ett);
                     switch (temp1.errcode)
                     {
                         case ErrorCode.NaN:
@@ -226,8 +238,8 @@ namespace DoAnCNPM.Views
                         case ErrorCode.sucess:
                             MessageBox.Show(Constants.success_edit);
                             load_data();
-                            Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,txt_lop, txt_tendocgia });
-                            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
+                            Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv, txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
+                            Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, true);
                             break;
                         case ErrorCode.fail:
                             if (Utils.switch_false())
@@ -257,14 +269,14 @@ namespace DoAnCNPM.Views
                     string err_infor = "";
                     foreach (DataGridViewRow item in selected_r)
                     {
-                        var temp = docgia_ctrl.delete_docgia(int.Parse(item.Cells[0].Value.ToString()));
+                        var temp = nhanvien_ctrl.delete_nhanvien(int.Parse(item.Cells[0].Value.ToString()));
                         switch (temp.errcode)
                         {
                             case ErrorCode.NaN:
                                 break;
                             case ErrorCode.sucess:
-                                Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email, txt_lop, txt_tendocgia });
-                                Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
+                                Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
+                                Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, true);
                                 option = Option.Nodata;
                                 break;
                             case ErrorCode.fail:
@@ -289,9 +301,9 @@ namespace DoAnCNPM.Views
             }
         }
 
-        private void txt_madocgia_TextChanged(object sender, EventArgs e)
+        private void txt_manhanvien_TextChanged(object sender, EventArgs e)
         {
-            if (txt_madocgia.Text == null || txt_madocgia.Text == "")
+            if (txt_manv.Text == null || txt_manv.Text == "")
             {
                 btn_xoa.Visible = false;
                 btn_sua.Visible = false;
@@ -302,5 +314,6 @@ namespace DoAnCNPM.Views
                 btn_sua.Visible = true;
             }
         }
+
     }
 }

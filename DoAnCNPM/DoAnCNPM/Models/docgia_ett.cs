@@ -21,7 +21,7 @@ namespace DoAnCNPM.Models
         {
             madocgia = dg.madg;
             tendocgia = dg.tendg;
-            ngaysinh = dg.ngaysinh.ToString();
+            ngaysinh = dg.ngaysinh;
             gioitinh = dg.gioitinh;
             lop = dg.lop;
             diachi = dg.diachi;

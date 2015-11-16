@@ -1,6 +1,6 @@
 ﻿namespace DoAnCNPM.Views
 {
-    partial class frm_capnhat_linhvuc
+    partial class frm_capnhat_tacgia
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // frm_capnhat_linhvuc
+            // frm_capnhat_tacgia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(998, 490);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frm_capnhat_linhvuc";
-            this.Text = "frm_linhvuc";
+            this.Name = "frm_capnhat_tacgia";
+            this.Text = "frm_capnhat_tacgia";
             this.ResumeLayout(false);
 
         }

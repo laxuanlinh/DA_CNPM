@@ -10,6 +10,8 @@ create table tbl_nhanvien(
 	email varchar(50),
 	chucvu nvarchar(100),
 	tuoi int,
+	taikhoan varchar(50),
+	matkhau nvarchar(50)
 )
 
 create table tbl_linhvuc(
@@ -35,7 +37,7 @@ create table tbl_nxb(
 create table tbl_docgia(
 	madg int primary key  identity,
 	tendg nvarchar(50),
-	ngaysinh date,
+	ngaysinh varchar(50),
 	gioitinh nvarchar(3) check (gioitinh IN(N'Nam', N'Nữ')),
 	lop varchar(10),
 	diachi nvarchar(100),
@@ -50,17 +52,23 @@ create table tbl_sach(
 	malv int foreign key references tbl_linhvuc(malinhvuc),
 	sotrang int,
 	soluong int,
-	ngaynhap date
+	ngaynhap varchar(50)
 )
 
 create table tbl_phieumuon_tra(
 	sophieumuon int primary key identity,
 	madg int foreign key references tbl_docgia(madg),
-	masach int foreign key references tbl_sach(masach),
-	ngaymuon date,
-	ngaytra date,
+	manv int foreign key references tbl_nhanvien(manv),
+	ngaymuon varchar(50),
+	ngaytra varchar(50),
 	xacnhantra bit,
 	ghichu nvarchar(300)
 )
 
-insert into tbl_nhanvien(tennv, diachi, dienthoai, email, chucvu, tuoi) values('admin', N'Hà Nội', '0987491230', 'toannvnuce@gmail.com', N'Thủ thư', 22);
+create table tbl_chitietphieu(
+	sophieumuon int foreign key references tbl_phieumuon_tra(sophieumuon),
+	masach int foreign key references tbl_sach(masach),
+	trangthaisach nvarchar(50)
+)
+
+insert into tbl_nhanvien(tennv, diachi, dienthoai, email, chucvu, tuoi, taikhoan, matkhau) values(N'Nguyễn Văn Toàn', N'Hà Nội', '0987491230', 'toannvnuce@gmail.com', N'Thủ thư', 22, 'admin', 'admin');

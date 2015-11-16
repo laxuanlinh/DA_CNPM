@@ -102,6 +102,7 @@
             this.item_capnhat_nhanvien.Name = "item_capnhat_nhanvien";
             this.item_capnhat_nhanvien.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_nhanvien.Text = "Nhân viên";
+            this.item_capnhat_nhanvien.Click += new System.EventHandler(this.btn_capnhat_nhanvien_Click);
             // 
             // item_capnhat_sach
             // 
@@ -109,6 +110,7 @@
             this.item_capnhat_sach.Name = "item_capnhat_sach";
             this.item_capnhat_sach.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_sach.Text = "Sách";
+            this.item_capnhat_sach.Click += new System.EventHandler(this.btn_capnhat_sach_Click);
             // 
             // item_capnhat_docgia
             // 
@@ -116,6 +118,7 @@
             this.item_capnhat_docgia.Name = "item_capnhat_docgia";
             this.item_capnhat_docgia.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_docgia.Text = "Độc giả";
+            this.item_capnhat_docgia.Click += new System.EventHandler(this.btn_capnhat_docgia_Click);
             // 
             // item_capnhat_tacgia
             // 
@@ -123,6 +126,7 @@
             this.item_capnhat_tacgia.Name = "item_capnhat_tacgia";
             this.item_capnhat_tacgia.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_tacgia.Text = "Tác giả";
+            this.item_capnhat_tacgia.Click += new System.EventHandler(this.btn_capnhat_tacgia_Click);
             // 
             // item_capnhat_nxb
             // 
@@ -130,6 +134,7 @@
             this.item_capnhat_nxb.Name = "item_capnhat_nxb";
             this.item_capnhat_nxb.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_nxb.Text = "Nhà xuất bản ";
+            this.item_capnhat_nxb.Click += new System.EventHandler(this.btn_capnhat_nxb_Click);
             // 
             // item_capnhat_linhvuc
             // 
@@ -137,6 +142,7 @@
             this.item_capnhat_linhvuc.Name = "item_capnhat_linhvuc";
             this.item_capnhat_linhvuc.Size = new System.Drawing.Size(158, 22);
             this.item_capnhat_linhvuc.Text = "Lĩnh vực";
+            this.item_capnhat_linhvuc.Click += new System.EventHandler(this.btn_capnhat_linhvuc_Click);
             // 
             // item_timkiem
             // 
@@ -152,8 +158,9 @@
             // 
             this.item_timkiem_sach.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.item_timkiem_sach.Name = "item_timkiem_sach";
-            this.item_timkiem_sach.Size = new System.Drawing.Size(121, 22);
+            this.item_timkiem_sach.Size = new System.Drawing.Size(152, 22);
             this.item_timkiem_sach.Text = "Sách";
+            this.item_timkiem_sach.Click += new System.EventHandler(this.btn_timkiem_sach_Click);
             // 
             // item_timkiem_docgia
             // 
@@ -265,6 +272,7 @@
             this.btn_timkiem_sach.TabIndex = 0;
             this.btn_timkiem_sach.Text = "Tìm kiếm Sách";
             this.btn_timkiem_sach.UseVisualStyleBackColor = true;
+            this.btn_timkiem_sach.Click += new System.EventHandler(this.btn_timkiem_sach_Click);
             // 
             // btn_timkiem_docgia
             // 
@@ -299,6 +307,7 @@
             this.btn_capnhat_linhvuc.TabIndex = 0;
             this.btn_capnhat_linhvuc.Text = "Cập nhật lĩnh vực";
             this.btn_capnhat_linhvuc.UseVisualStyleBackColor = true;
+            this.btn_capnhat_linhvuc.Click += new System.EventHandler(this.btn_capnhat_linhvuc_Click);
             // 
             // btn_capnhat_nxb
             // 
@@ -308,6 +317,7 @@
             this.btn_capnhat_nxb.TabIndex = 0;
             this.btn_capnhat_nxb.Text = "Cập nhật nhà xuât bản";
             this.btn_capnhat_nxb.UseVisualStyleBackColor = true;
+            this.btn_capnhat_nxb.Click += new System.EventHandler(this.btn_capnhat_nxb_Click);
             // 
             // btn_capnhat_tacgia
             // 
@@ -317,6 +327,7 @@
             this.btn_capnhat_tacgia.TabIndex = 0;
             this.btn_capnhat_tacgia.Text = "Cập nhật tác giả";
             this.btn_capnhat_tacgia.UseVisualStyleBackColor = true;
+            this.btn_capnhat_tacgia.Click += new System.EventHandler(this.btn_capnhat_tacgia_Click);
             // 
             // btn_capnhat_docgia
             // 
@@ -326,6 +337,7 @@
             this.btn_capnhat_docgia.TabIndex = 0;
             this.btn_capnhat_docgia.Text = "Cập nhật độc giả";
             this.btn_capnhat_docgia.UseVisualStyleBackColor = true;
+            this.btn_capnhat_docgia.Click += new System.EventHandler(this.btn_capnhat_docgia_Click);
             // 
             // btn_capnhat_sach
             // 
@@ -335,6 +347,7 @@
             this.btn_capnhat_sach.TabIndex = 0;
             this.btn_capnhat_sach.Text = "Cập nhật sách";
             this.btn_capnhat_sach.UseVisualStyleBackColor = true;
+            this.btn_capnhat_sach.Click += new System.EventHandler(this.btn_capnhat_sach_Click);
             // 
             // btn_capnhat_nhanvien
             // 
@@ -344,6 +357,7 @@
             this.btn_capnhat_nhanvien.TabIndex = 0;
             this.btn_capnhat_nhanvien.Text = "Cập nhật nhân viên";
             this.btn_capnhat_nhanvien.UseVisualStyleBackColor = true;
+            this.btn_capnhat_nhanvien.Click += new System.EventHandler(this.btn_capnhat_nhanvien_Click);
             // 
             // lbl_title
             // 

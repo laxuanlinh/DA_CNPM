@@ -25,6 +25,7 @@ namespace DoAnCNPM.Shareds
             foreach (string item in title_cell)
             {
                 dtgv.Columns[i].HeaderText = item;
+                i++;
             }
         }
 

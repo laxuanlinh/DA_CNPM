@@ -14,7 +14,9 @@ namespace DoAnCNPM.Models
         public string sdt { get; set; }
         public string email { get; set; }
         public string chucvu { get; set; }
-        public int tuoi { get; set; }
+        public int? tuoi { get; set; }
+        public string taikhoan { get; set; }
+        public string matkhau { get; set; }
 
         public nhanvien_ett() { }
         public nhanvien_ett(tbl_nhanvien nv)
@@ -25,9 +27,11 @@ namespace DoAnCNPM.Models
             sdt = nv.dienthoai;
             email = nv.email;
             chucvu = nv.chucvu;
-            tuoi = (int)nv.tuoi;
+            tuoi = nv.tuoi;
+            taikhoan = nv.taikhoan;
+            matkhau = nv.matkhau;
         }
-        public nhanvien_ett(int ma, string ten, string dc, string sdt, string email, string chucvu, int tuoi)
+        public nhanvien_ett(int ma, string ten, string dc, string sdt, string email, string chucvu, int tuoi, string tk, string mk)
         {
             manhanvien = ma;
             tennhanvien = ten;
@@ -36,6 +40,8 @@ namespace DoAnCNPM.Models
             this.email = email;
             this.chucvu = chucvu;
             this.tuoi = tuoi;
+            taikhoan = tk;
+            matkhau = mk;
         }
     }
 }
