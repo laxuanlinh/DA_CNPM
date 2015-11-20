@@ -68,5 +68,17 @@ namespace DoAnCNPM
             frm_timkiem_sach temp = new frm_timkiem_sach();
             Utils.add_form_to_panel(temp, panel1);
         }
+
+        private void btn_timkiem_docgia_Click(object sender, EventArgs e)
+        {
+            frm_timkiem_docgia temp = new frm_timkiem_docgia();
+            Utils.add_form_to_panel(temp, panel1);
+        }
+
+        private void btn_muontra_sach_Click(object sender, EventArgs e)
+        {
+            frm_muon_tra_sach temp = new frm_muon_tra_sach();
+            Utils.add_form_to_panel(temp, panel1);
+        }
     }
 }

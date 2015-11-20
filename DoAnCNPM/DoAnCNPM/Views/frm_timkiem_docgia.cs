@@ -13,16 +13,17 @@ using System.Windows.Forms;
 
 namespace DoAnCNPM.Views
 {
-    public partial class frm_timkiem_sach : Form
+    public partial class frm_timkiem_docgia : Form
     {
-        public frm_timkiem_sach()
+        public frm_timkiem_docgia()
         {
             InitializeComponent();
         }
-        private sach_ctrl sach_ctrl = new sach_ctrl();
+        private docgia_ctrl docgia_ctrl = new docgia_ctrl();
+        //update data for dtgv
         private void load_data()
         {
-            var dt = sach_ctrl.select_all_sachview();
+            var dt = docgia_ctrl.select_all_docgia();
             switch (dt.errcode)
             {
                 case Models.ErrorCode.NaN:
@@ -30,7 +31,7 @@ namespace DoAnCNPM.Views
                     break;
                 case Models.ErrorCode.sucess:
                     dtgv.DataSource = dt.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số lượng", "Số trang", "Ngày nhập" });
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã ĐG", "Tên ĐG", "Ngày sinh", "Giới tính", "Lớp", "Địa chỉ", "Email" });
                     break;
                 case Models.ErrorCode.fail:
                     if (Utils.switch_false())
@@ -42,25 +43,26 @@ namespace DoAnCNPM.Views
                     break;
             }
         }
-        private void frm_capnhat_sach_Load(object sender, EventArgs e)
+
+        private void frm_timkiem_docgia_Load(object sender, EventArgs e)
         {
+
             load_data();
 
             List<how_to_search> dt_source = new List<how_to_search>();
-            dt_source.Add(new how_to_search("Tên sách", "tensach"));
-            dt_source.Add(new how_to_search("Tác giả", "tacgia"));
-            dt_source.Add(new how_to_search("Lĩnh vực", "linhvuc"));
-            dt_source.Add(new how_to_search("Nhà xuất bản", "nxb"));
+            dt_source.Add(new how_to_search("Họ tên", "hoten"));
+            dt_source.Add(new how_to_search("Lớp", "lop"));
+            dt_source.Add(new how_to_search("email", "email"));
 
             cbx_option_search.DataSource = dt_source;
             cbx_option_search.DisplayMember = "value";
             cbx_option_search.ValueMember = "key";
-
         }
+
         private void txt_timkiem_TextChanged(object sender, EventArgs e)
         {
             var select_cbx = cbx_option_search.SelectedValue.ToString();
-            var temp = sach_ctrl.select_sach_fields(txt_timkiem.Text, select_cbx);
+            var temp = docgia_ctrl.select_docgia_fields(txt_timkiem.Text, select_cbx);
             switch (temp.errcode)
             {
                 case ErrorCode.NaN:
@@ -68,7 +70,7 @@ namespace DoAnCNPM.Views
                     break;
                 case ErrorCode.sucess:
                     dtgv.DataSource = temp.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số lượng", "Số trang", "Ngày nhập" });
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã ĐG", "Tên ĐG", "Ngày sinh", "Giới tính", "Lớp", "Địa chỉ", "Email" });
 
                     break;
                 case ErrorCode.fail:

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,8 @@ namespace DoAnCNPM.Views
             {
                 nhanvien_ett.manhanvien = int.Parse(txt_manv.Text);
             }
+            else
+                nhanvien_ett.manhanvien = 0;
             nhanvien_ett.tennhanvien = txt_tennv.Text;
             nhanvien_ett.diachi = txt_diachi.Text;
             nhanvien_ett.sdt = txt_sdt.Text;
@@ -41,6 +44,8 @@ namespace DoAnCNPM.Views
                 nhanvien_ett.tuoi = int.Parse(txt_tuoi.Text);
 
             }
+            else
+                nhanvien_ett.tuoi = 0;
             nhanvien_ett.email = txt_email.Text;
             nhanvien_ett.taikhoan = txt_taikhoan.Text;
             nhanvien_ett.matkhau = txt_matkhau.Text;
@@ -180,6 +185,41 @@ namespace DoAnCNPM.Views
                     break;
 
                 case Option.Insert:
+                    var check_ten = Utils.err_null_data(txt_tennv);
+                    if (check_ten != null)
+                    {
+                        MessageBox.Show(check_ten);
+                        break;
+                    }
+                    if (txt_tuoi.Text.Length > 2)
+                    {
+                        MessageBox.Show(Constants.error_age);
+                        txt_tuoi.Focus();
+                        break;
+                    }
+                    if (txt_sdt.Text != null && txt_sdt.Text != "")
+                    {
+                        if (txt_sdt.Text.Length < 10 || txt_sdt.Text.Length > 11)
+                        {
+                            MessageBox.Show(Constants.error_sdt);
+                            txt_sdt.Focus();
+                            break;
+                        }
+                    }            
+                    try
+                    {
+                        if (txt_email.Text != null && txt_email.Text != "")
+                        {
+                            MailAddress m = new MailAddress(txt_email.Text);
+                        }
+                    }
+                    catch (Exception e1)
+                    {
+                        MessageBox.Show(Constants.error_email);
+                        txt_email.Focus();
+                        break;
+                    }            
+
                     get_info();
                     //check if existing data
                     var check = true;
@@ -214,6 +254,36 @@ namespace DoAnCNPM.Views
                     break;
 
                 case Option.Edit:
+                    if (txt_tuoi.Text.Length > 2)
+                    {
+                        MessageBox.Show(Constants.error_age);
+                        txt_tuoi.Focus();
+                        break;
+                    }
+                    if (txt_sdt.Text != null && txt_sdt.Text != "")
+                    {
+                        if (txt_sdt.Text.Length < 10 || txt_sdt.Text.Length > 11)
+                        {
+                            MessageBox.Show(Constants.error_sdt);
+                            txt_sdt.Focus();
+                            break;
+                        }
+                    }
+                    try
+                    {
+                        if (txt_email.Text != null && txt_email.Text != "")
+                        {
+                            MailAddress m = new MailAddress(txt_email.Text);
+                        }
+                    }
+                    catch (Exception e1)
+                    {
+                        MessageBox.Show(Constants.error_email);
+                        txt_email.Focus();
+                        break;
+                    }
+
+
                     get_info();
                     //check if existing data
                     var check1 = true;
@@ -315,5 +385,19 @@ namespace DoAnCNPM.Views
             }
         }
 
+
+        private void txt_sdt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\b')
+            {
+                return;
+            }
+
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                MessageBox.Show(Constants.error_format_number);
+                e.KeyChar = (char)0;
+            }
+        }
     }
 }

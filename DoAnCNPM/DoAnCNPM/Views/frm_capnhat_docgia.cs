@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DoAnCNPM.Controllers;
 using DoAnCNPM.Shareds;
 using DoAnCNPM.Models;
+using System.Net.Mail;
 
 namespace DoAnCNPM.Views
 {
@@ -31,6 +32,7 @@ namespace DoAnCNPM.Views
             {
                 docgia_ett.madocgia = int.Parse(txt_madocgia.Text);
             }
+            else docgia_ett.madocgia = 0;
             docgia_ett.tendocgia = txt_tendocgia.Text;
             docgia_ett.ngaysinh = dtpk_ngaysinh.Text;
             docgia_ett.lop = txt_lop.Text;
@@ -67,6 +69,7 @@ namespace DoAnCNPM.Views
         {
             InitializeComponent();
             Utils.readOnly_text_box(new List<TextBox>{ txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
+            dtpk_ngaysinh.Enabled = false;
                 btn_xoa.Visible = false;
                 btn_sua.Visible = false;
         }
@@ -99,6 +102,7 @@ namespace DoAnCNPM.Views
         {
             Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,  txt_lop, txt_tendocgia });
             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email,  txt_lop, txt_tendocgia }, true);
+            dtpk_ngaysinh.Enabled = false;
             cbx_gioitinh.SelectedIndex = -1;
         }
 
@@ -106,6 +110,7 @@ namespace DoAnCNPM.Views
         {
             Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,  txt_lop, txt_tendocgia });
             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, false);
+            dtpk_ngaysinh.Enabled = true;
             txt_tendocgia.Focus();
             option = Option.Insert;
 
@@ -156,7 +161,7 @@ namespace DoAnCNPM.Views
         {
             option = Option.Edit;
             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, false);
-
+            dtpk_ngaysinh.Enabled = true;
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -168,6 +173,25 @@ namespace DoAnCNPM.Views
                     break;
 
                 case Option.Insert:
+                    var check_ten = Utils.err_null_data(txt_tendocgia);
+                    if (check_ten != null)
+                    {
+                        MessageBox.Show(check_ten);
+                        break;
+                    }
+                    try
+                    {
+                        if (txt_email.Text != null && txt_email.Text != "")
+                        {
+                            MailAddress m = new MailAddress(txt_email.Text);
+                        }
+                    }
+                    catch (Exception e1)
+                    {
+                        MessageBox.Show(Constants.error_email);
+                        txt_email.Focus();
+                        break;
+                    }
                     get_info();
                     //check if existing data
                     var check = true;
@@ -202,6 +226,19 @@ namespace DoAnCNPM.Views
                     break;
 
                 case Option.Edit:
+                    try
+                    {
+                        if (txt_email.Text != null && txt_email.Text != "")
+                        {
+                            MailAddress m = new MailAddress(txt_email.Text);
+                        }
+                    }
+                    catch (Exception e1)
+                    {
+                        MessageBox.Show(Constants.error_email);
+                        txt_email.Focus();
+                        break;
+                    }
                     get_info();
                     //check if existing data
                     var check1 = true;
@@ -228,6 +265,7 @@ namespace DoAnCNPM.Views
                             load_data();
                             Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email,txt_lop, txt_tendocgia });
                             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
+                            dtpk_ngaysinh.Enabled = false;
                             break;
                         case ErrorCode.fail:
                             if (Utils.switch_false())
@@ -265,6 +303,7 @@ namespace DoAnCNPM.Views
                             case ErrorCode.sucess:
                                 Utils.erase_text_box(new List<TextBox> { txt_madocgia, txt_diachi, txt_email, txt_lop, txt_tendocgia });
                                 Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_email, txt_lop, txt_tendocgia }, true);
+                                dtpk_ngaysinh.Enabled = false;
                                 option = Option.Nodata;
                                 break;
                             case ErrorCode.fail:

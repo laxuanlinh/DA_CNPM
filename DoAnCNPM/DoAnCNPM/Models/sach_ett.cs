@@ -10,11 +10,11 @@ namespace DoAnCNPM.Models
     {
         public int masach { get; set; }
         public string tensach { get; set; }
-        public int matg { get; set; }
-        public int manxb { get; set; }
-        public int malv { get; set; }
-        public int sotrang { get; set; }
-        public int soluong { get; set; }
+        public int? matg { get; set; }
+        public int? manxb { get; set; }
+        public int? malv { get; set; }
+        public int? sotrang { get; set; }
+        public int? soluong { get; set; }
         public string ngaynhap { get; set; }
 
         public sach_ett() { }

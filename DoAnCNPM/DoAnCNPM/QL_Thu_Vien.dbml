@@ -54,7 +54,7 @@
   <Table Name="dbo.tbl_nxb" Member="tbl_nxbs">
     <Type Name="tbl_nxb">
       <Column Name="manxb" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tennxb" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tennxb" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="sdt" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
       <Association Name="tbl_nxb_tbl_sach" Member="tbl_saches" ThisKey="manxb" OtherKey="manxb" Type="tbl_sach" />

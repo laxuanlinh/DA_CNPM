@@ -63,7 +63,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(373, 37);
+            this.label1.Location = new System.Drawing.Point(463, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 42);
             this.label1.TabIndex = 0;
@@ -124,7 +124,7 @@
             // txt_timkiem
             // 
             this.txt_timkiem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_timkiem.Location = new System.Drawing.Point(767, 149);
+            this.txt_timkiem.Location = new System.Drawing.Point(931, 161);
             this.txt_timkiem.Name = "txt_timkiem";
             this.txt_timkiem.Size = new System.Drawing.Size(219, 25);
             this.txt_timkiem.TabIndex = 13;
@@ -135,7 +135,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(554, 152);
+            this.label7.Location = new System.Drawing.Point(718, 164);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 17);
             this.label7.TabIndex = 28;
@@ -220,7 +220,7 @@
             this.dtgv.Name = "dtgv";
             this.dtgv.ReadOnly = true;
             this.dtgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgv.Size = new System.Drawing.Size(445, 243);
+            this.dtgv.Size = new System.Drawing.Size(712, 243);
             this.dtgv.TabIndex = 29;
             this.dtgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_CellClick);
             // 
@@ -380,7 +380,7 @@
             "Tên khoa",
             "Địa chỉ",
             "Điện thoại"});
-            this.cbx_option_search.Location = new System.Drawing.Point(652, 149);
+            this.cbx_option_search.Location = new System.Drawing.Point(816, 161);
             this.cbx_option_search.Name = "cbx_option_search";
             this.cbx_option_search.Size = new System.Drawing.Size(110, 25);
             this.cbx_option_search.TabIndex = 14;
@@ -389,7 +389,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1014, 529);
+            this.ClientSize = new System.Drawing.Size(1280, 529);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt_timkiem);
             this.Controls.Add(this.label7);

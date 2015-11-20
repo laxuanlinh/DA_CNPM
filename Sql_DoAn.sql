@@ -23,13 +23,13 @@ create table tbl_linhvuc(
 create table tbl_tacgia(
 	matg int identity primary key,
 	tentg nvarchar(50),
-	gioitinh nvarchar(3) check (gioitinh IN(N'Nam', N'Nữ')),
+	gioitinh nvarchar(3),
 	diachi nvarchar(100)
 )
 
 create table tbl_nxb(
 	manxb int primary key identity,
-	tennxb varchar(100),
+	tennxb nvarchar(100),
 	diachi nvarchar(200),
 	sdt varchar(11)
 )
@@ -38,7 +38,7 @@ create table tbl_docgia(
 	madg int primary key  identity,
 	tendg nvarchar(50),
 	ngaysinh varchar(50),
-	gioitinh nvarchar(3) check (gioitinh IN(N'Nam', N'Nữ')),
+	gioitinh nvarchar(3),
 	lop varchar(10),
 	diachi nvarchar(100),
 	email varchar(50)

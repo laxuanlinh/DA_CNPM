@@ -78,7 +78,7 @@
             this.item_thoat});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1029, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,7 +158,7 @@
             // 
             this.item_timkiem_sach.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.item_timkiem_sach.Name = "item_timkiem_sach";
-            this.item_timkiem_sach.Size = new System.Drawing.Size(152, 22);
+            this.item_timkiem_sach.Size = new System.Drawing.Size(121, 22);
             this.item_timkiem_sach.Text = "Sách";
             this.item_timkiem_sach.Click += new System.EventHandler(this.btn_timkiem_sach_Click);
             // 
@@ -168,6 +168,7 @@
             this.item_timkiem_docgia.Name = "item_timkiem_docgia";
             this.item_timkiem_docgia.Size = new System.Drawing.Size(121, 22);
             this.item_timkiem_docgia.Text = "Độc giả";
+            this.item_timkiem_docgia.Click += new System.EventHandler(this.btn_timkiem_docgia_Click);
             // 
             // item_muontra_sach
             // 
@@ -175,6 +176,7 @@
             this.item_muontra_sach.Name = "item_muontra_sach";
             this.item_muontra_sach.Size = new System.Drawing.Size(106, 21);
             this.item_muontra_sach.Text = "Mượn/trả sách";
+            this.item_muontra_sach.Click += new System.EventHandler(this.btn_muontra_sach_Click);
             // 
             // item_baocao
             // 
@@ -197,9 +199,9 @@
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.lbl_title);
-            this.panel1.Location = new System.Drawing.Point(6, 28);
+            this.panel1.Location = new System.Drawing.Point(4, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1014, 529);
+            this.panel1.Size = new System.Drawing.Size(1280, 529);
             this.panel1.TabIndex = 1;
             // 
             // groupBox4
@@ -207,7 +209,7 @@
             this.groupBox4.Controls.Add(this.button11);
             this.groupBox4.Controls.Add(this.button10);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(767, 134);
+            this.groupBox4.Location = new System.Drawing.Point(953, 129);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(189, 320);
             this.groupBox4.TabIndex = 9;
@@ -236,7 +238,7 @@
             // 
             this.groupBox3.Controls.Add(this.btn_muontra_sach);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(535, 134);
+            this.groupBox3.Location = new System.Drawing.Point(699, 129);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(189, 320);
             this.groupBox3.TabIndex = 10;
@@ -251,13 +253,14 @@
             this.btn_muontra_sach.TabIndex = 0;
             this.btn_muontra_sach.Text = "Mượn / Trả sách";
             this.btn_muontra_sach.UseVisualStyleBackColor = true;
+            this.btn_muontra_sach.Click += new System.EventHandler(this.btn_muontra_sach_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_timkiem_sach);
             this.groupBox2.Controls.Add(this.btn_timkiem_docgia);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(279, 134);
+            this.groupBox2.Location = new System.Drawing.Point(439, 129);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(189, 320);
             this.groupBox2.TabIndex = 11;
@@ -282,6 +285,7 @@
             this.btn_timkiem_docgia.TabIndex = 0;
             this.btn_timkiem_docgia.Text = "Tìm kiếm độc giả";
             this.btn_timkiem_docgia.UseVisualStyleBackColor = true;
+            this.btn_timkiem_docgia.Click += new System.EventHandler(this.btn_timkiem_docgia_Click);
             // 
             // groupBox1
             // 
@@ -292,7 +296,7 @@
             this.groupBox1.Controls.Add(this.btn_capnhat_sach);
             this.groupBox1.Controls.Add(this.btn_capnhat_nhanvien);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(59, 134);
+            this.groupBox1.Location = new System.Drawing.Point(186, 129);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(189, 320);
             this.groupBox1.TabIndex = 12;
@@ -363,7 +367,7 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.Location = new System.Drawing.Point(336, 74);
+            this.lbl_title.Location = new System.Drawing.Point(487, 69);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(288, 42);
             this.lbl_title.TabIndex = 8;
@@ -373,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 561);
+            this.ClientSize = new System.Drawing.Size(1284, 561);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

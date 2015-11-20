@@ -1059,7 +1059,7 @@ namespace DoAnCNPM
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tennxb", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tennxb", DbType="NVarChar(100)")]
 		public string tennxb
 		{
 			get
