@@ -96,6 +96,7 @@ namespace DoAnCNPM.Views
             Utils.erase_text_box(new List<TextBox> { txt_matacgia, txt_diachi, txt_tentacgia });
             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_tentacgia }, true);
             cbx_gioitinh.SelectedIndex = -1;
+            option = Option.Nodata;
         }
 
         private void btn_them_Click(object sender, EventArgs e)

@@ -57,6 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbx_option_search = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_add_soluong = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -175,6 +176,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_add_soluong);
             this.groupBox1.Controls.Add(this.dtpk_ngaynhap);
             this.groupBox1.Controls.Add(this.cbx_linhvuc);
             this.groupBox1.Controls.Add(this.cbx_nxb);
@@ -324,7 +326,7 @@
             this.txt_soluong.Location = new System.Drawing.Point(348, 111);
             this.txt_soluong.Multiline = true;
             this.txt_soluong.Name = "txt_soluong";
-            this.txt_soluong.Size = new System.Drawing.Size(158, 25);
+            this.txt_soluong.Size = new System.Drawing.Size(115, 25);
             this.txt_soluong.TabIndex = 6;
             this.txt_soluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_sotrang_KeyPress);
             // 
@@ -416,6 +418,17 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "Cập nhật sách";
             // 
+            // btn_add_soluong
+            // 
+            this.btn_add_soluong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add_soluong.Location = new System.Drawing.Point(469, 108);
+            this.btn_add_soluong.Name = "btn_add_soluong";
+            this.btn_add_soluong.Size = new System.Drawing.Size(37, 32);
+            this.btn_add_soluong.TabIndex = 14;
+            this.btn_add_soluong.Text = "+";
+            this.btn_add_soluong.UseVisualStyleBackColor = true;
+            this.btn_add_soluong.Click += new System.EventHandler(this.btn_add_soluong_Click);
+            // 
             // frm_capnhat_sach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,5 +484,6 @@
         private System.Windows.Forms.ComboBox cbx_nxb;
         private System.Windows.Forms.ComboBox cbx_tacgia;
         private System.Windows.Forms.DateTimePicker dtpk_ngaynhap;
+        private System.Windows.Forms.Button btn_add_soluong;
     }
 }

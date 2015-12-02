@@ -68,7 +68,8 @@ create table tbl_phieumuon_tra(
 create table tbl_chitietphieu(
 	sophieumuon int foreign key references tbl_phieumuon_tra(sophieumuon),
 	masach int foreign key references tbl_sach(masach),
-	trangthaisach nvarchar(50)
+	trangthaisach nvarchar(50),
+	constraint PK_chitietphieu primary key(sophieumuon, masach)
 )
 
 insert into tbl_nhanvien(tennv, diachi, dienthoai, email, chucvu, tuoi, taikhoan, matkhau) values(N'Nguyễn Văn Toàn', N'Hà Nội', '0987491230', 'toannvnuce@gmail.com', N'Thủ thư', 22, 'admin', 'admin');

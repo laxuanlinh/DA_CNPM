@@ -80,5 +80,6 @@ namespace DoAnCNPM
             frm_muon_tra_sach temp = new frm_muon_tra_sach();
             Utils.add_form_to_panel(temp, panel1);
         }
+
     }
 }

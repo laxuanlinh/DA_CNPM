@@ -2,8 +2,8 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=TOANTAM\SQLEXPRESS;Initial Catalog=QL_Thu_Vien;Integrated Security=True" SettingsObjectName="DoAnCNPM.Properties.Settings" SettingsPropertyName="QL_Thu_VienConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_chitietphieu" Member="tbl_chitietphieus">
     <Type Name="tbl_chitietphieu">
-      <Column Name="sophieumuon" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="masach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sophieumuon" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="masach" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="trangthaisach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="tbl_phieumuon_tra_tbl_chitietphieu" Member="tbl_phieumuon_tra" ThisKey="sophieumuon" OtherKey="sophieumuon" Type="tbl_phieumuon_tra" IsForeignKey="true" />
       <Association Name="tbl_sach_tbl_chitietphieu" Member="tbl_sach" ThisKey="masach" OtherKey="masach" Type="tbl_sach" IsForeignKey="true" />

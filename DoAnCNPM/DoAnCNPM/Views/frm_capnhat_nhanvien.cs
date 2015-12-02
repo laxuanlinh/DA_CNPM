@@ -110,6 +110,7 @@ namespace DoAnCNPM.Views
 
         private void btn_huy_Click(object sender, EventArgs e)
         {
+            option = Option.Nodata;
             Utils.erase_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email, txt_manv,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi });
             Utils.readOnly_text_box(new List<TextBox> { txt_diachi, txt_chucvu, txt_email,  txt_matkhau, txt_sdt, txt_taikhoan, txt_tennv, txt_tuoi }, true);
         }

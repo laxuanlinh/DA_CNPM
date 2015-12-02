@@ -30,6 +30,9 @@ namespace DoAnCNPM
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void Inserttbl_chitietphieu(tbl_chitietphieu instance);
+    partial void Updatetbl_chitietphieu(tbl_chitietphieu instance);
+    partial void Deletetbl_chitietphieu(tbl_chitietphieu instance);
     partial void Inserttbl_tacgia(tbl_tacgia instance);
     partial void Updatetbl_tacgia(tbl_tacgia instance);
     partial void Deletetbl_tacgia(tbl_tacgia instance);
@@ -149,21 +152,42 @@ namespace DoAnCNPM
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_chitietphieu")]
-	public partial class tbl_chitietphieu
+	public partial class tbl_chitietphieu : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<int> _sophieumuon;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _masach;
+		private int _sophieumuon;
+		
+		private int _masach;
 		
 		private string _trangthaisach;
 		
+		private EntityRef<tbl_phieumuon_tra> _tbl_phieumuon_tra;
+		
+		private EntityRef<tbl_sach> _tbl_sach;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnsophieumuonChanging(int value);
+    partial void OnsophieumuonChanged();
+    partial void OnmasachChanging(int value);
+    partial void OnmasachChanged();
+    partial void OntrangthaisachChanging(string value);
+    partial void OntrangthaisachChanged();
+    #endregion
+		
 		public tbl_chitietphieu()
 		{
+			this._tbl_phieumuon_tra = default(EntityRef<tbl_phieumuon_tra>);
+			this._tbl_sach = default(EntityRef<tbl_sach>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sophieumuon", DbType="Int")]
-		public System.Nullable<int> sophieumuon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sophieumuon", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int sophieumuon
 		{
 			get
 			{
@@ -173,13 +197,21 @@ namespace DoAnCNPM
 			{
 				if ((this._sophieumuon != value))
 				{
+					if (this._tbl_phieumuon_tra.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnsophieumuonChanging(value);
+					this.SendPropertyChanging();
 					this._sophieumuon = value;
+					this.SendPropertyChanged("sophieumuon");
+					this.OnsophieumuonChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masach", DbType="Int")]
-		public System.Nullable<int> masach
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_masach", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int masach
 		{
 			get
 			{
@@ -189,7 +221,15 @@ namespace DoAnCNPM
 			{
 				if ((this._masach != value))
 				{
+					if (this._tbl_sach.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnmasachChanging(value);
+					this.SendPropertyChanging();
 					this._masach = value;
+					this.SendPropertyChanged("masach");
+					this.OnmasachChanged();
 				}
 			}
 		}
@@ -205,8 +245,100 @@ namespace DoAnCNPM
 			{
 				if ((this._trangthaisach != value))
 				{
+					this.OntrangthaisachChanging(value);
+					this.SendPropertyChanging();
 					this._trangthaisach = value;
+					this.SendPropertyChanged("trangthaisach");
+					this.OntrangthaisachChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_phieumuon_tra_tbl_chitietphieu", Storage="_tbl_phieumuon_tra", ThisKey="sophieumuon", OtherKey="sophieumuon", IsForeignKey=true)]
+		public tbl_phieumuon_tra tbl_phieumuon_tra
+		{
+			get
+			{
+				return this._tbl_phieumuon_tra.Entity;
+			}
+			set
+			{
+				tbl_phieumuon_tra previousValue = this._tbl_phieumuon_tra.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_phieumuon_tra.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_phieumuon_tra.Entity = null;
+						previousValue.tbl_chitietphieus.Remove(this);
+					}
+					this._tbl_phieumuon_tra.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_chitietphieus.Add(this);
+						this._sophieumuon = value.sophieumuon;
+					}
+					else
+					{
+						this._sophieumuon = default(int);
+					}
+					this.SendPropertyChanged("tbl_phieumuon_tra");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_sach_tbl_chitietphieu", Storage="_tbl_sach", ThisKey="masach", OtherKey="masach", IsForeignKey=true)]
+		public tbl_sach tbl_sach
+		{
+			get
+			{
+				return this._tbl_sach.Entity;
+			}
+			set
+			{
+				tbl_sach previousValue = this._tbl_sach.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_sach.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_sach.Entity = null;
+						previousValue.tbl_chitietphieus.Remove(this);
+					}
+					this._tbl_sach.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_chitietphieus.Add(this);
+						this._masach = value.masach;
+					}
+					else
+					{
+						this._masach = default(int);
+					}
+					this.SendPropertyChanged("tbl_sach");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -1185,6 +1317,8 @@ namespace DoAnCNPM
 		
 		private string _ghichu;
 		
+		private EntitySet<tbl_chitietphieu> _tbl_chitietphieus;
+		
 		private EntityRef<tbl_docgia> _tbl_docgia;
 		
 		private EntityRef<tbl_nhanvien> _tbl_nhanvien;
@@ -1211,6 +1345,7 @@ namespace DoAnCNPM
 		
 		public tbl_phieumuon_tra()
 		{
+			this._tbl_chitietphieus = new EntitySet<tbl_chitietphieu>(new Action<tbl_chitietphieu>(this.attach_tbl_chitietphieus), new Action<tbl_chitietphieu>(this.detach_tbl_chitietphieus));
 			this._tbl_docgia = default(EntityRef<tbl_docgia>);
 			this._tbl_nhanvien = default(EntityRef<tbl_nhanvien>);
 			OnCreated();
@@ -1364,6 +1499,19 @@ namespace DoAnCNPM
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_phieumuon_tra_tbl_chitietphieu", Storage="_tbl_chitietphieus", ThisKey="sophieumuon", OtherKey="sophieumuon")]
+		public EntitySet<tbl_chitietphieu> tbl_chitietphieus
+		{
+			get
+			{
+				return this._tbl_chitietphieus;
+			}
+			set
+			{
+				this._tbl_chitietphieus.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_docgia_tbl_phieumuon_tra", Storage="_tbl_docgia", ThisKey="madg", OtherKey="madg", IsForeignKey=true)]
 		public tbl_docgia tbl_docgia
 		{
@@ -1451,6 +1599,18 @@ namespace DoAnCNPM
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_chitietphieus(tbl_chitietphieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_phieumuon_tra = this;
+		}
+		
+		private void detach_tbl_chitietphieus(tbl_chitietphieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_phieumuon_tra = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_sach")]
@@ -1474,6 +1634,8 @@ namespace DoAnCNPM
 		private System.Nullable<int> _soluong;
 		
 		private string _ngaynhap;
+		
+		private EntitySet<tbl_chitietphieu> _tbl_chitietphieus;
 		
 		private EntityRef<tbl_linhvuc> _tbl_linhvuc;
 		
@@ -1505,6 +1667,7 @@ namespace DoAnCNPM
 		
 		public tbl_sach()
 		{
+			this._tbl_chitietphieus = new EntitySet<tbl_chitietphieu>(new Action<tbl_chitietphieu>(this.attach_tbl_chitietphieus), new Action<tbl_chitietphieu>(this.detach_tbl_chitietphieus));
 			this._tbl_linhvuc = default(EntityRef<tbl_linhvuc>);
 			this._tbl_nxb = default(EntityRef<tbl_nxb>);
 			this._tbl_tacgia = default(EntityRef<tbl_tacgia>);
@@ -1683,6 +1846,19 @@ namespace DoAnCNPM
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_sach_tbl_chitietphieu", Storage="_tbl_chitietphieus", ThisKey="masach", OtherKey="masach")]
+		public EntitySet<tbl_chitietphieu> tbl_chitietphieus
+		{
+			get
+			{
+				return this._tbl_chitietphieus;
+			}
+			set
+			{
+				this._tbl_chitietphieus.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_linhvuc_tbl_sach", Storage="_tbl_linhvuc", ThisKey="malv", OtherKey="malinhvuc", IsForeignKey=true)]
 		public tbl_linhvuc tbl_linhvuc
 		{
@@ -1803,6 +1979,18 @@ namespace DoAnCNPM
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_tbl_chitietphieus(tbl_chitietphieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_sach = this;
+		}
+		
+		private void detach_tbl_chitietphieus(tbl_chitietphieu entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_sach = null;
 		}
 	}
 }

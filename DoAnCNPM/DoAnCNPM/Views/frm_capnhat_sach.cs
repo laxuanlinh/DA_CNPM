@@ -87,6 +87,7 @@ namespace DoAnCNPM.Views
             InitializeComponent();
             Utils.readOnly_text_box(new List<TextBox> { txt_sotrang, txt_soluong , txt_tensach }, true);
             dtpk_ngaynhap.Enabled = false;
+            btn_add_soluong.Visible = false;
             btn_xoa.Visible = false;
             btn_sua.Visible = false;
             Utils.enable_combobox(new List<ComboBox> { cbx_linhvuc, cbx_nxb, cbx_tacgia }, false);
@@ -179,6 +180,7 @@ namespace DoAnCNPM.Views
             Utils.erase_combobox(new List<ComboBox> { cbx_linhvuc, cbx_nxb, cbx_tacgia });
             Utils.readOnly_text_box(new List<TextBox> { txt_sotrang, txt_soluong, txt_tensach }, true);
             dtpk_ngaynhap.Enabled = false;
+            option = Option.Nodata;
         }
 
         private void btn_them_Click(object sender, EventArgs e)
@@ -418,12 +420,16 @@ namespace DoAnCNPM.Views
             {
                 btn_xoa.Visible = false;
                 btn_sua.Visible = false;
+                btn_add_soluong.Visible = false;
             }
             else
             {
                 btn_xoa.Visible = true;
                 btn_sua.Visible = true;
+                btn_add_soluong.Visible = true;
             }
+
+
         }
 
         private void cbx_tacgia_Leave(object sender, EventArgs e)
@@ -472,6 +478,11 @@ namespace DoAnCNPM.Views
                 MessageBox.Show(Constants.error_format_number);
                 e.KeyChar = (char)0;
             }
+        }
+
+        private void btn_add_soluong_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

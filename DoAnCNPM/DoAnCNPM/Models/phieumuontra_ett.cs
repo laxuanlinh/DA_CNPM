@@ -9,11 +9,11 @@ namespace DoAnCNPM.Models
     public class phieumuontra_ett
     {
         public int sophieumuon { get; set; }
-        public int madg { get; set; }
-        public int manv { get; set; }
+        public int? madg { get; set; }
+        public int? manv { get; set; }
         public string ngaymuon { get; set; }
         public string ngaytra { get; set; }
-        public bool xacnhantra { get; set; }
+        public bool? xacnhantra { get; set; }
         public string ghichu { get; set; }
 
         public phieumuontra_ett() { }

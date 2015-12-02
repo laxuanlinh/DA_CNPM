@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\chitietphieu_ctrl.cs" />
     <Compile Include="Controllers\docgia_ctrl.cs" />
     <Compile Include="Controllers\linhvuc_ctrl.cs" />
     <Compile Include="Controllers\nhanvien_ctrl.cs" />
@@ -62,6 +63,7 @@
     </Compile>
     <Compile Include="Models\chitietphieu_ett.cs" />
     <Compile Include="Models\docgia_ett.cs" />
+    <Compile Include="Models\phieumuontraview_ett.cs" />
     <Compile Include="Models\sachview_ett.cs" />
     <Compile Include="QL_Thu_Vien.designer.cs">
       <AutoGen>True</AutoGen>
@@ -226,6 +228,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Xoa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\print.jpg" />
+    <None Include="Resources\print1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
