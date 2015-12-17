@@ -59,7 +59,7 @@ namespace DoAnCNPM.Views
         }
 
         //update data for dtgv
-        private void load_data()
+        public void load_data()
         {
             var dt = sach_ctrl.select_all_sachview();
             switch (dt.errcode)
@@ -69,7 +69,7 @@ namespace DoAnCNPM.Views
                     break;
                 case Models.ErrorCode.sucess:
                     dtgv.DataSource = dt.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số lượng", "Số trang", "Ngày nhập" });
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số trang", "Số lượng", "Ngày nhập" });
                     break;
                 case Models.ErrorCode.fail:
                     if (Utils.switch_false())
@@ -205,8 +205,8 @@ namespace DoAnCNPM.Views
                 cbx_linhvuc.Text = temp.Cells[2].Value.ToString();
                 cbx_tacgia.Text = temp.Cells[3].Value.ToString();
                 cbx_nxb.Text = temp.Cells[4].Value.ToString();
-                txt_soluong.Text = temp.Cells[5].Value.ToString();
-                txt_sotrang.Text = temp.Cells[6].Value.ToString();
+                txt_sotrang.Text = temp.Cells[5].Value.ToString();
+                txt_soluong.Text = temp.Cells[6].Value.ToString();
                 var ngaynhap = temp.Cells[7].Value.ToString();
                 dtpk_ngaynhap.Value = DateTime.ParseExact(ngaynhap, "dd/MM/yyyy", null);
             }
@@ -223,7 +223,7 @@ namespace DoAnCNPM.Views
                     break;
                 case ErrorCode.sucess:
                     dtgv.DataSource = temp.data;
-                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số lượng", "Số trang", "Ngày nhập" });
+                    Utils.chang_title_datagridViewCell(dtgv, new List<string> { "Mã sách", "Tên sách", "Tác giả", "Nhà XB", "Lĩnh Vực", "Số trang", "Số lượng", "Ngày nhập" });
 
                     break;
                 case ErrorCode.fail:
@@ -408,7 +408,7 @@ namespace DoAnCNPM.Views
                     }
                     else
                     {
-                        MessageBox.Show(err_infor);
+                        MessageBox.Show(Constants.not_allow_to_delete);
                     }
                 }
             }
@@ -482,7 +482,8 @@ namespace DoAnCNPM.Views
 
         private void btn_add_soluong_Click(object sender, EventArgs e)
         {
-
+            sub_frm_them_soluongsach sub_form = new sub_frm_them_soluongsach(int.Parse(txt_masach.Text), this);
+            sub_form.Show();
         }
     }
 }

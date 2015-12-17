@@ -19,6 +19,15 @@ namespace DoAnCNPM
             InitializeComponent();
         }
 
+        public frm_main(string taikhoan)
+        {
+            InitializeComponent();
+            btn_capnhat_nhanvien.Visible = false;
+            tabctrl_baocao.Visible = false;
+            item_baocao.Visible = false;
+            item_capnhat_nhanvien.Visible = false;
+        }
+
         private void item_thoat_Click(object sender, EventArgs e)
         {
             if (Utils.confirm_exit())
@@ -81,5 +90,22 @@ namespace DoAnCNPM
             Utils.add_form_to_panel(temp, panel1);
         }
 
+        private void btn_bcsach_hetsoluong_Click(object sender, EventArgs e)
+        {
+            frm_baocao_sachsaphet temp = new frm_baocao_sachsaphet();
+            Utils.add_form_to_panel(temp, panel1);
+        }
+
+        private void btn_bc_sachchuaduocmuon_Click(object sender, EventArgs e)
+        {
+            frm_baocao_sachchuaduocmuon temp = new frm_baocao_sachchuaduocmuon();
+            Utils.add_form_to_panel(temp, panel1);
+        }
+
+        private void btn_bcdocgia_muonquahan_Click(object sender, EventArgs e)
+        {
+            frm_baocao_docgiamuonquahan temp = new frm_baocao_docgiamuonquahan();
+            Utils.add_form_to_panel(temp, panel1);
+        }
     }
 }

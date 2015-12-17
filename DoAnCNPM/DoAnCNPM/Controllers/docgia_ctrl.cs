@@ -78,6 +78,47 @@ namespace DoAnCNPM.Controllers
             }
         }
 
+        public Result<List<docgia_ett>> select_expired_docgia()
+        {
+            Result<List<docgia_ett>> rs = new Result<List<docgia_ett>>();
+            try
+            {
+                List<docgia_ett> lst = new List<docgia_ett>();
+                var dt = (from b1 in db.tbl_docgias
+                           join b2 in db.tbl_phieumuon_tras on b1.madg equals b2.madg
+                           where b2.xacnhantra == false
+                           select new { b1, b2.ngaytra}).AsEnumerable();
+
+                var data = from o in dt
+                           where DateTime.ParseExact(o.ngaytra, "dd/MM/yyyy", null) < DateTime.Today
+                           group o by o.b1 into g
+                           select new { g.Key};
+                if (data.Count() > 0)
+                {
+                    foreach (var item in data)
+                    {
+                        docgia_ett temp = new docgia_ett(item.Key);
+                        lst.Add(temp);
+                    }
+                    rs.data = lst;
+                    rs.errcode = ErrorCode.sucess;
+                }
+                else
+                {
+                    rs.data = null;
+                    rs.errInfor = Constants.empty_data;
+                }
+                return rs;
+            }
+            catch (Exception e)
+            {
+                rs.data = null;
+                rs.errInfor = e.ToString();
+                rs.errcode = ErrorCode.fail;
+                return rs;
+            }
+        }
+
         public Result<bool> delete_docgia(int madocgia)
         {
             Result<bool> rs = new Result<bool>();

@@ -21,5 +21,6 @@ namespace DoAnCNPM.Shareds
         public static string error_age = "Bạn không được nhập tuổi quá 99!";
         public static string error_sdt = "Số điện thoại phải từ 10 - 11 ký tự!";
         public static string error_email = "email không hợp lệ!";
+        public static string not_allow_to_delete = "Bạn không được phép xóa vì có thể mất dữ liệu ở bảng khác";
     }
 }

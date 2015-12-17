@@ -52,7 +52,7 @@ namespace DoAnCNPM.Controllers
             }
         }
 
-        public Result<phieumuontra_ett> insert_phieumuontra(phieumuontra_ett phieumuontra)
+        public Result<phieumuontra_ett> insert_phieumuontra(phieumuontra_ett phieumuontra, List<string> list_masach)
         {
             Result<phieumuontra_ett> rs = new Result<phieumuontra_ett>();
 
@@ -68,6 +68,16 @@ namespace DoAnCNPM.Controllers
                 temp.ghichu = phieumuontra.ghichu;
 
                 db.tbl_phieumuon_tras.InsertOnSubmit(temp);
+
+                if (list_masach.Count() > 0)
+                {
+                    foreach (string item in list_masach)
+                    {
+                        var dt = db.tbl_saches.Where(o => o.masach == int.Parse(item)).SingleOrDefault();
+                        dt.soluong--;
+                    }
+                }   
+
                 db.SubmitChanges();
 
                 var last_record = db.tbl_phieumuon_tras.OrderByDescending(o => o.sophieumuon).Take(1);
@@ -125,7 +135,7 @@ namespace DoAnCNPM.Controllers
             }
         }
 
-        public Result<bool> edit_phieumuontra(phieumuontra_ett phieumuontra)
+        public Result<bool> edit_phieumuontra(phieumuontra_ett phieumuontra, List<string> list_masach)
         {
             Result<bool> rs = new Result<bool>();
             try
@@ -156,6 +166,17 @@ namespace DoAnCNPM.Controllers
                 if (phieumuontra.xacnhantra != null)
                 {
                     dt.xacnhantra = phieumuontra.xacnhantra;
+                    if (phieumuontra.xacnhantra==true)
+                    {
+                        if (list_masach.Count() > 0)
+                        {
+                            foreach (string item in list_masach)
+                            {
+                                var data = db.tbl_saches.Where(o => o.masach == int.Parse(item)).SingleOrDefault();
+                                data.soluong++;
+                            }
+                        }               
+                    }
                 }
 
                 db.SubmitChanges();

@@ -71,6 +71,11 @@ namespace DoAnCNPM.Views
             }
         }
 
+        private void load_data_sachmuon()
+        {
+
+        }
+
         public frm_muon_tra_sach()
         {
             InitializeComponent();
@@ -200,14 +205,15 @@ namespace DoAnCNPM.Views
             Utils.erase_combobox(new List<ComboBox> { cbx_docgia, cbx_nhanvien });
             Utils.readOnly_text_box(new List<TextBox> { txt_ghichu }, false);
             Utils.enable_combobox(new List<ComboBox> { cbx_docgia, cbx_nhanvien }, true);
-            chbox_xacnhantra.Enabled = true;
+            chbox_xacnhantra.Enabled = false;
+            chbox_xacnhantra.Checked = false;
             dtgv_sachmuon.Enabled = true;
             dtgv_sachmuon.Rows.Clear();
             dtpk_ngaytra.Enabled = true;
             dtpk_ngaymuon.Enabled = true;
             txt_soPM.Focus();
             option = Option.Insert;
-
+            btn_sua.Enabled = btn_xoa.Enabled = btn_luu.Enabled = true;
         }
 
         private void dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -222,6 +228,21 @@ namespace DoAnCNPM.Views
                 dtpk_ngaytra.Value = DateTime.ParseExact(temp.Cells[4].Value.ToString(), "dd/MM/yyyy", null);
                 chbox_xacnhantra.Checked = bool.Parse(temp.Cells[5].Value.ToString());
                 txt_ghichu.Text = temp.Cells[6].Value.ToString();
+
+                if (chbox_xacnhantra.Checked)
+                {
+                    btn_sua.Enabled = btn_xoa.Enabled = btn_luu.Enabled = false;
+                    Utils.readOnly_text_box(new List<TextBox> { txt_ghichu }, true);
+                    Utils.enable_combobox(new List<ComboBox> { cbx_docgia, cbx_nhanvien }, false);
+                    chbox_xacnhantra.Enabled = false;
+                    dtgv_sachmuon.Enabled = false;
+                    dtpk_ngaytra.Enabled = false;
+                    dtpk_ngaymuon.Enabled = false;
+                }
+                else
+                {
+                   btn_sua.Enabled = btn_xoa.Enabled = btn_luu.Enabled = true;
+                }
 
                 chitietphieu_ctrl chitiet_ctrl = new chitietphieu_ctrl();
                 var list_sach = chitiet_ctrl.select_all_chitietphieu_by_sopm(int.Parse(txt_soPM.Text));
@@ -342,7 +363,16 @@ namespace DoAnCNPM.Views
                         Utils.err_duplicate_data();
                         break;
                     }
-                    var temp = phieumuontra_ctrl.insert_phieumuontra(phieumuontra_ett);
+                    List<string> lst_masach = new List<string>();
+                    var sach_dataRows = dtgv_sachmuon.Rows;
+                    foreach (DataGridViewRow item in sach_dataRows)
+                    {
+                        if (item.Cells[0].Value != null)
+                        {
+                            lst_masach.Add(item.Cells[0].Value.ToString());
+                        }
+                    }
+                    var temp = phieumuontra_ctrl.insert_phieumuontra(phieumuontra_ett, lst_masach);
                     switch (temp.errcode)
                     {
                         case ErrorCode.NaN:
@@ -373,8 +403,7 @@ namespace DoAnCNPM.Views
                     }
                     break;
 
-                case Option.Edit:
-                   
+                case Option.Edit:  
                     get_info();
                     //check if existing data
                     var check1 = true;
@@ -391,7 +420,16 @@ namespace DoAnCNPM.Views
                         Utils.err_no_duplicate_data();
                         break;
                     }
-                    var temp1 = phieumuontra_ctrl.edit_phieumuontra(phieumuontra_ett);
+                    List<string> lst_masach1 = new List<string>();
+                    var sach_dataRows1 = dtgv_sachmuon.Rows;
+                    foreach (DataGridViewRow item in sach_dataRows1)
+                    {
+                        if (item.Cells[0].Value != null)
+                        {
+                            lst_masach1.Add(item.Cells[0].Value.ToString());
+                        }
+                    }
+                    var temp1 = phieumuontra_ctrl.edit_phieumuontra(phieumuontra_ett, lst_masach1);
                     var sopm1 = phieumuontra_ett.sophieumuon;
 
                     chitietphieu_ctrl chitiet_ctrl1 = new chitietphieu_ctrl();
@@ -411,6 +449,12 @@ namespace DoAnCNPM.Views
                         case ErrorCode.sucess:
                             MessageBox.Show(Constants.success_edit);
                             load_data();
+                            get_ds_sach();
+                            foreach (chitietphieu_ett item in chitietphieu)
+                            {
+                                item.sophieumuon = sopm1;
+                                chitiet_ctrl1.insert_chitietphieu(item);
+                            }
                             Utils.erase_text_box(new List<TextBox> { txt_soPM, txt_ghichu});
                             Utils.readOnly_text_box(new List<TextBox> {txt_ghichu}, true);
                             Utils.erase_combobox(new List<ComboBox>() { cbx_nhanvien, cbx_docgia });
@@ -421,13 +465,6 @@ namespace DoAnCNPM.Views
                             dtpk_ngaytra.Enabled = false;
                             chbox_xacnhantra.Enabled = false;
                             chbox_xacnhantra.Checked = false;
-
-                            get_ds_sach();
-                            foreach (chitietphieu_ett item in chitietphieu)
-                            {
-                                item.sophieumuon = sopm1;
-                                chitiet_ctrl1.insert_chitietphieu(item);
-                            }
                             break;
                         case ErrorCode.fail:
                             if (Utils.switch_false())
@@ -490,7 +527,7 @@ namespace DoAnCNPM.Views
                     }
                     else
                     {
-                        MessageBox.Show(err_infor);
+                        MessageBox.Show(Constants.not_allow_to_delete);
                     }
                 }
             }
@@ -576,5 +613,9 @@ namespace DoAnCNPM.Views
             }
         }
 
+        private void btn_in_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

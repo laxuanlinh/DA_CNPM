@@ -17,3 +17,7 @@ D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.exe
 D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.pdb
 D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_timkiem_docgia.resources
 D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_muon_tra_sach.resources
+D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.sub_frm_them_soluongsach.resources
+D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_baocao_docgiamuonquahan.resources
+D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_baocao_sachsaphet.resources
+D:\Github\DA_CNPM\DoAnCNPM\DoAnCNPM\obj\Debug\DoAnCNPM.Views.frm_baocao_sachchuaduocmuon.resources

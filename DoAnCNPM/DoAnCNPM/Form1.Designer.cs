@@ -44,20 +44,14 @@
             this.sáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinSáchHỏngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sốLầnMượnSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chưaĐượcMượnLầnNàoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.độcGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sốLầnMượnSáchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.chưaTừngMượnSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mượnQuáHạnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.item_thoat = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabctrl_baocao = new System.Windows.Forms.TabControl();
             this.tabctrl_bcsach = new System.Windows.Forms.TabPage();
-            this.btn_bcsach_hong = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btn_bcsach_hetsoluong = new System.Windows.Forms.Button();
+            this.btn_bc_sachchuaduocmuon = new System.Windows.Forms.Button();
             this.tabctrl_bcdocgia = new System.Windows.Forms.TabPage();
-            this.btn_bcdocgia_solanmon = new System.Windows.Forms.Button();
-            this.btn_bcdocgia_chuatungmuon = new System.Windows.Forms.Button();
             this.btn_bcdocgia_muonquahan = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_muontra_sach = new System.Windows.Forms.Button();
@@ -207,57 +201,31 @@
             // 
             this.sáchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinSáchHỏngToolStripMenuItem,
-            this.sốLầnMượnSáchToolStripMenuItem,
-            this.chưaĐượcMượnLầnNàoToolStripMenuItem});
+            this.sốLầnMượnSáchToolStripMenuItem});
             this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
-            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.sáchToolStripMenuItem.Text = "Sách";
             // 
             // thôngTinSáchHỏngToolStripMenuItem
             // 
             this.thôngTinSáchHỏngToolStripMenuItem.Name = "thôngTinSáchHỏngToolStripMenuItem";
-            this.thôngTinSáchHỏngToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.thôngTinSáchHỏngToolStripMenuItem.Text = "Thông tin sách hỏng";
+            this.thôngTinSáchHỏngToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.thôngTinSáchHỏngToolStripMenuItem.Text = "Sách sắp hết số lượng";
+            this.thôngTinSáchHỏngToolStripMenuItem.Click += new System.EventHandler(this.btn_bcsach_hetsoluong_Click);
             // 
             // sốLầnMượnSáchToolStripMenuItem
             // 
             this.sốLầnMượnSáchToolStripMenuItem.Name = "sốLầnMượnSáchToolStripMenuItem";
-            this.sốLầnMượnSáchToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.sốLầnMượnSáchToolStripMenuItem.Text = "Số lần mượn sách";
-            // 
-            // chưaĐượcMượnLầnNàoToolStripMenuItem
-            // 
-            this.chưaĐượcMượnLầnNàoToolStripMenuItem.Name = "chưaĐượcMượnLầnNàoToolStripMenuItem";
-            this.chưaĐượcMượnLầnNàoToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
-            this.chưaĐượcMượnLầnNàoToolStripMenuItem.Text = "Chưa được mượn lần nào";
+            this.sốLầnMượnSáchToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+            this.sốLầnMượnSáchToolStripMenuItem.Text = "Sách chưa được mượn lần nào";
+            this.sốLầnMượnSáchToolStripMenuItem.Click += new System.EventHandler(this.btn_bc_sachchuaduocmuon_Click);
             // 
             // độcGiảToolStripMenuItem
             // 
-            this.độcGiảToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sốLầnMượnSáchToolStripMenuItem1,
-            this.chưaTừngMượnSáchToolStripMenuItem,
-            this.mượnQuáHạnToolStripMenuItem});
             this.độcGiảToolStripMenuItem.Name = "độcGiảToolStripMenuItem";
-            this.độcGiảToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.độcGiảToolStripMenuItem.Text = "Độc giả";
-            // 
-            // sốLầnMượnSáchToolStripMenuItem1
-            // 
-            this.sốLầnMượnSáchToolStripMenuItem1.Name = "sốLầnMượnSáchToolStripMenuItem1";
-            this.sốLầnMượnSáchToolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
-            this.sốLầnMượnSáchToolStripMenuItem1.Text = "Số lần mượn sách";
-            // 
-            // chưaTừngMượnSáchToolStripMenuItem
-            // 
-            this.chưaTừngMượnSáchToolStripMenuItem.Name = "chưaTừngMượnSáchToolStripMenuItem";
-            this.chưaTừngMượnSáchToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.chưaTừngMượnSáchToolStripMenuItem.Text = "Chưa từng mượn sách";
-            // 
-            // mượnQuáHạnToolStripMenuItem
-            // 
-            this.mượnQuáHạnToolStripMenuItem.Name = "mượnQuáHạnToolStripMenuItem";
-            this.mượnQuáHạnToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.mượnQuáHạnToolStripMenuItem.Text = "Mượn quá hạn";
+            this.độcGiảToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.độcGiảToolStripMenuItem.Text = "Độc giả mượn quá hạn";
+            this.độcGiảToolStripMenuItem.Click += new System.EventHandler(this.btn_bcdocgia_muonquahan_Click);
             // 
             // item_thoat
             // 
@@ -291,8 +259,8 @@
             // 
             // tabctrl_bcsach
             // 
-            this.tabctrl_bcsach.Controls.Add(this.btn_bcsach_hong);
-            this.tabctrl_bcsach.Controls.Add(this.button9);
+            this.tabctrl_bcsach.Controls.Add(this.btn_bcsach_hetsoluong);
+            this.tabctrl_bcsach.Controls.Add(this.btn_bc_sachchuaduocmuon);
             this.tabctrl_bcsach.Location = new System.Drawing.Point(4, 26);
             this.tabctrl_bcsach.Name = "tabctrl_bcsach";
             this.tabctrl_bcsach.Padding = new System.Windows.Forms.Padding(3);
@@ -301,30 +269,28 @@
             this.tabctrl_bcsach.Text = "Báo cáo sách";
             this.tabctrl_bcsach.UseVisualStyleBackColor = true;
             // 
-            // btn_bcsach_hong
+            // btn_bcsach_hetsoluong
             // 
-            this.btn_bcsach_hong.Location = new System.Drawing.Point(9, 25);
-            this.btn_bcsach_hong.Name = "btn_bcsach_hong";
-            this.btn_bcsach_hong.Size = new System.Drawing.Size(177, 33);
-            this.btn_bcsach_hong.TabIndex = 0;
-            this.btn_bcsach_hong.Text = "Thông tin sách hỏng";
-            this.btn_bcsach_hong.UseVisualStyleBackColor = true;
-            this.btn_bcsach_hong.Click += new System.EventHandler(this.btn_capnhat_nhanvien_Click);
+            this.btn_bcsach_hetsoluong.Location = new System.Drawing.Point(9, 21);
+            this.btn_bcsach_hetsoluong.Name = "btn_bcsach_hetsoluong";
+            this.btn_bcsach_hetsoluong.Size = new System.Drawing.Size(177, 60);
+            this.btn_bcsach_hetsoluong.TabIndex = 0;
+            this.btn_bcsach_hetsoluong.Text = "Sách sắp hết số lượng";
+            this.btn_bcsach_hetsoluong.UseVisualStyleBackColor = true;
+            this.btn_bcsach_hetsoluong.Click += new System.EventHandler(this.btn_bcsach_hetsoluong_Click);
             // 
-            // button9
+            // btn_bc_sachchuaduocmuon
             // 
-            this.button9.Location = new System.Drawing.Point(9, 64);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(177, 33);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "Chưa được mượn lần nào";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.btn_capnhat_docgia_Click);
+            this.btn_bc_sachchuaduocmuon.Location = new System.Drawing.Point(9, 90);
+            this.btn_bc_sachchuaduocmuon.Name = "btn_bc_sachchuaduocmuon";
+            this.btn_bc_sachchuaduocmuon.Size = new System.Drawing.Size(177, 60);
+            this.btn_bc_sachchuaduocmuon.TabIndex = 0;
+            this.btn_bc_sachchuaduocmuon.Text = "Sách chưa được mượn lần nào";
+            this.btn_bc_sachchuaduocmuon.UseVisualStyleBackColor = true;
+            this.btn_bc_sachchuaduocmuon.Click += new System.EventHandler(this.btn_bc_sachchuaduocmuon_Click);
             // 
             // tabctrl_bcdocgia
             // 
-            this.tabctrl_bcdocgia.Controls.Add(this.btn_bcdocgia_solanmon);
-            this.tabctrl_bcdocgia.Controls.Add(this.btn_bcdocgia_chuatungmuon);
             this.tabctrl_bcdocgia.Controls.Add(this.btn_bcdocgia_muonquahan);
             this.tabctrl_bcdocgia.Location = new System.Drawing.Point(4, 26);
             this.tabctrl_bcdocgia.Name = "tabctrl_bcdocgia";
@@ -334,35 +300,15 @@
             this.tabctrl_bcdocgia.Text = "Báo cáo độc giả";
             this.tabctrl_bcdocgia.UseVisualStyleBackColor = true;
             // 
-            // btn_bcdocgia_solanmon
-            // 
-            this.btn_bcdocgia_solanmon.Location = new System.Drawing.Point(9, 25);
-            this.btn_bcdocgia_solanmon.Name = "btn_bcdocgia_solanmon";
-            this.btn_bcdocgia_solanmon.Size = new System.Drawing.Size(177, 33);
-            this.btn_bcdocgia_solanmon.TabIndex = 0;
-            this.btn_bcdocgia_solanmon.Text = "Số lần mượn/ độc giả";
-            this.btn_bcdocgia_solanmon.UseVisualStyleBackColor = true;
-            this.btn_bcdocgia_solanmon.Click += new System.EventHandler(this.btn_capnhat_nhanvien_Click);
-            // 
-            // btn_bcdocgia_chuatungmuon
-            // 
-            this.btn_bcdocgia_chuatungmuon.Location = new System.Drawing.Point(9, 66);
-            this.btn_bcdocgia_chuatungmuon.Name = "btn_bcdocgia_chuatungmuon";
-            this.btn_bcdocgia_chuatungmuon.Size = new System.Drawing.Size(177, 33);
-            this.btn_bcdocgia_chuatungmuon.TabIndex = 0;
-            this.btn_bcdocgia_chuatungmuon.Text = "Độc giả chưa từng mượn";
-            this.btn_bcdocgia_chuatungmuon.UseVisualStyleBackColor = true;
-            this.btn_bcdocgia_chuatungmuon.Click += new System.EventHandler(this.btn_capnhat_sach_Click);
-            // 
             // btn_bcdocgia_muonquahan
             // 
-            this.btn_bcdocgia_muonquahan.Location = new System.Drawing.Point(9, 108);
+            this.btn_bcdocgia_muonquahan.Location = new System.Drawing.Point(6, 21);
             this.btn_bcdocgia_muonquahan.Name = "btn_bcdocgia_muonquahan";
-            this.btn_bcdocgia_muonquahan.Size = new System.Drawing.Size(177, 33);
+            this.btn_bcdocgia_muonquahan.Size = new System.Drawing.Size(177, 60);
             this.btn_bcdocgia_muonquahan.TabIndex = 0;
             this.btn_bcdocgia_muonquahan.Text = "Độc giả mượn quá hạn";
             this.btn_bcdocgia_muonquahan.UseVisualStyleBackColor = true;
-            this.btn_bcdocgia_muonquahan.Click += new System.EventHandler(this.btn_capnhat_docgia_Click);
+            this.btn_bcdocgia_muonquahan.Click += new System.EventHandler(this.btn_bcdocgia_muonquahan_Click);
             // 
             // groupBox3
             // 
@@ -379,7 +325,7 @@
             // 
             this.btn_muontra_sach.Location = new System.Drawing.Point(6, 47);
             this.btn_muontra_sach.Name = "btn_muontra_sach";
-            this.btn_muontra_sach.Size = new System.Drawing.Size(177, 33);
+            this.btn_muontra_sach.Size = new System.Drawing.Size(177, 60);
             this.btn_muontra_sach.TabIndex = 0;
             this.btn_muontra_sach.Text = "Mượn / Trả sách";
             this.btn_muontra_sach.UseVisualStyleBackColor = true;
@@ -401,7 +347,7 @@
             // 
             this.btn_timkiem_sach.Location = new System.Drawing.Point(6, 47);
             this.btn_timkiem_sach.Name = "btn_timkiem_sach";
-            this.btn_timkiem_sach.Size = new System.Drawing.Size(177, 33);
+            this.btn_timkiem_sach.Size = new System.Drawing.Size(177, 60);
             this.btn_timkiem_sach.TabIndex = 0;
             this.btn_timkiem_sach.Text = "Tìm kiếm Sách";
             this.btn_timkiem_sach.UseVisualStyleBackColor = true;
@@ -409,9 +355,9 @@
             // 
             // btn_timkiem_docgia
             // 
-            this.btn_timkiem_docgia.Location = new System.Drawing.Point(6, 88);
+            this.btn_timkiem_docgia.Location = new System.Drawing.Point(6, 116);
             this.btn_timkiem_docgia.Name = "btn_timkiem_docgia";
-            this.btn_timkiem_docgia.Size = new System.Drawing.Size(177, 33);
+            this.btn_timkiem_docgia.Size = new System.Drawing.Size(177, 60);
             this.btn_timkiem_docgia.TabIndex = 0;
             this.btn_timkiem_docgia.Text = "Tìm kiếm độc giả";
             this.btn_timkiem_docgia.UseVisualStyleBackColor = true;
@@ -561,19 +507,13 @@
         private System.Windows.Forms.TabControl tabctrl_baocao;
         private System.Windows.Forms.TabPage tabctrl_bcsach;
         private System.Windows.Forms.TabPage tabctrl_bcdocgia;
-        private System.Windows.Forms.Button btn_bcsach_hong;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button btn_bcdocgia_solanmon;
-        private System.Windows.Forms.Button btn_bcdocgia_chuatungmuon;
+        private System.Windows.Forms.Button btn_bcsach_hetsoluong;
+        private System.Windows.Forms.Button btn_bc_sachchuaduocmuon;
         private System.Windows.Forms.Button btn_bcdocgia_muonquahan;
         private System.Windows.Forms.ToolStripMenuItem sáchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem độcGiảToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinSáchHỏngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sốLầnMượnSáchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chưaĐượcMượnLầnNàoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sốLầnMượnSáchToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem chưaTừngMượnSáchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mượnQuáHạnToolStripMenuItem;
     }
 }
 

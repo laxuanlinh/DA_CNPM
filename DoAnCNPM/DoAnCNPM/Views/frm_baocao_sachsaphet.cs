@@ -13,16 +13,17 @@ using System.Windows.Forms;
 
 namespace DoAnCNPM.Views
 {
-    public partial class frm_timkiem_sach : Form
+    public partial class frm_baocao_sachsaphet : Form
     {
-        public frm_timkiem_sach()
+        public frm_baocao_sachsaphet()
         {
             InitializeComponent();
         }
+
         private sach_ctrl sach_ctrl = new sach_ctrl();
         private void load_data()
         {
-            var dt = sach_ctrl.select_all_sachview();
+            var dt = sach_ctrl.select_sach_almost_null();
             switch (dt.errcode)
             {
                 case Models.ErrorCode.NaN:

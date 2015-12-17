@@ -30,7 +30,7 @@
         {
             this.dtpk_ngaytra = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_in = new System.Windows.Forms.Button();
             this.dtgv_sachmuon = new System.Windows.Forms.DataGridView();
             this.chbox_xacnhantra = new System.Windows.Forms.CheckBox();
             this.dtpk_ngaymuon = new System.Windows.Forms.DateTimePicker();
@@ -70,11 +70,11 @@
             this.dtpk_ngaytra.Name = "dtpk_ngaytra";
             this.dtpk_ngaytra.Size = new System.Drawing.Size(158, 25);
             this.dtpk_ngaytra.TabIndex = 3;
-            this.dtpk_ngaytra.Value = new System.DateTime(2015, 11, 20, 17, 0, 0, 0);
+            this.dtpk_ngaytra.Value = new System.DateTime(2015, 12, 8, 0, 0, 0, 0);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_in);
             this.groupBox1.Controls.Add(this.dtgv_sachmuon);
             this.groupBox1.Controls.Add(this.chbox_xacnhantra);
             this.groupBox1.Controls.Add(this.dtpk_ngaymuon);
@@ -103,17 +103,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết phiếu mượn";
             // 
-            // button1
+            // btn_in
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(30, 238);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 59);
-            this.button1.TabIndex = 47;
-            this.button1.Text = "In";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_in.BackColor = System.Drawing.Color.White;
+            this.btn_in.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_in.Location = new System.Drawing.Point(30, 238);
+            this.btn_in.Name = "btn_in";
+            this.btn_in.Size = new System.Drawing.Size(75, 59);
+            this.btn_in.TabIndex = 47;
+            this.btn_in.Text = "In";
+            this.btn_in.UseVisualStyleBackColor = false;
+            this.btn_in.Click += new System.EventHandler(this.btn_in_Click);
             // 
             // dtgv_sachmuon
             // 
@@ -143,7 +144,7 @@
             this.dtpk_ngaymuon.Name = "dtpk_ngaymuon";
             this.dtpk_ngaymuon.Size = new System.Drawing.Size(158, 25);
             this.dtpk_ngaymuon.TabIndex = 13;
-            this.dtpk_ngaymuon.Value = new System.DateTime(2015, 11, 20, 17, 0, 0, 0);
+            this.dtpk_ngaymuon.Value = new System.DateTime(2015, 12, 8, 17, 45, 32, 0);
             // 
             // btn_thoat
             // 
@@ -359,6 +360,7 @@
             // 
             // dtgv
             // 
+            this.dtgv.AllowUserToOrderColumns = true;
             this.dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv.GridColor = System.Drawing.SystemColors.Control;
             this.dtgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -471,7 +473,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbx_option_search;
         private System.Windows.Forms.ComboBox cbx_docgia;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_in;
         private System.Windows.Forms.DataGridView dtgv_sachmuon;
     }
 }

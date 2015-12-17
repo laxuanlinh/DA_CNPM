@@ -366,7 +366,7 @@ namespace DoAnCNPM.Views
                     }
                     else
                     {
-                        MessageBox.Show(err_infor);
+                        MessageBox.Show(Constants.not_allow_to_delete);
                     }
                 }
             }

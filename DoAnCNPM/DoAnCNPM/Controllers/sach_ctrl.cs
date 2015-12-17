@@ -83,6 +83,82 @@ namespace DoAnCNPM.Controllers
             }
         }
 
+        public Result<List<sachview_ett>> select_sach_almost_null()
+        {
+            Result<List<sachview_ett>> rs = new Result<List<sachview_ett>>();
+            try
+            {
+                List<sachview_ett> lst = new List<sachview_ett>();
+                var dt = from o in db.tbl_saches
+                         join p in db.tbl_tacgias on o.matg equals p.matg
+                         join k in db.tbl_nxbs on o.manxb equals k.manxb
+                         join l in db.tbl_linhvucs on o.malv equals l.malinhvuc
+                         where o.soluong < 5
+                         select new sachview_ett() { masach = o.masach, tensach = o.tensach, linhvuc = l.tenlinhvuc, tacgia = p.tentg, nxb = k.tennxb, soluong = o.soluong.ToString(), sotrang = o.sotrang.ToString(), ngaynhap = o.ngaynhap };
+                if (dt.Count() > 0)
+                {
+                    foreach (sachview_ett item in dt)
+                    {
+                        lst.Add(item);
+                    }
+                    rs.data = lst;
+                    rs.errcode = ErrorCode.sucess;
+                }
+                else
+                {
+                    rs.data = null;
+                    rs.errInfor = Constants.empty_data;
+                }
+                return rs;
+            }
+            catch (Exception e)
+            {
+                rs.data = null;
+                rs.errInfor = e.ToString();
+                rs.errcode = ErrorCode.fail;
+                return rs;
+            }
+        }
+
+        public Result<List<sachview_ett>> select_sach_no_one_borrow()
+        {
+            Result<List<sachview_ett>> rs = new Result<List<sachview_ett>>();
+            try
+            {
+                List<sachview_ett> lst = new List<sachview_ett>();
+                var dt = from o in db.tbl_saches
+                         where !(from b2 in db.tbl_phieumuon_tras
+                                 join b3 in db.tbl_chitietphieus on b2.sophieumuon equals b3.sophieumuon
+                                 select b3.masach).Contains(o.masach)
+                         join p in db.tbl_tacgias on o.matg equals p.matg
+                         join k in db.tbl_nxbs on o.manxb equals k.manxb
+                         join l in db.tbl_linhvucs on o.malv equals l.malinhvuc
+                         select new sachview_ett() { masach = o.masach, tensach = o.tensach, linhvuc = l.tenlinhvuc, tacgia = p.tentg, nxb = k.tennxb, soluong = o.soluong.ToString(), sotrang = o.sotrang.ToString(), ngaynhap = o.ngaynhap };
+
+                if (dt.Count() > 0)
+                {
+                    foreach (sachview_ett item in dt)
+                    {
+                        lst.Add(item);
+                    }
+                    rs.data = lst;
+                    rs.errcode = ErrorCode.sucess;
+                }
+                else
+                {
+                    rs.data = null;
+                    rs.errInfor = Constants.empty_data;
+                }
+                return rs;
+            }
+            catch (Exception e)
+            {
+                rs.data = null;
+                rs.errInfor = e.ToString();
+                rs.errcode = ErrorCode.fail;
+                return rs;
+            }
+        }
 
         public Result<bool> insert_sach(sach_ett sach)
         {
@@ -256,5 +332,6 @@ namespace DoAnCNPM.Controllers
                 return rs;
             }
         }
+
     }
 }

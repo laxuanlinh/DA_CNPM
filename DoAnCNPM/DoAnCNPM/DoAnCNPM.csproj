@@ -84,6 +84,24 @@
     <Compile Include="Shareds\how_to_search.cs" />
     <Compile Include="Shareds\Option.cs" />
     <Compile Include="Shareds\Utils.cs" />
+    <Compile Include="Views\frm_baocao_docgiamuonquahan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_baocao_docgiamuonquahan.Designer.cs">
+      <DependentUpon>frm_baocao_docgiamuonquahan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_baocao_sachchuaduocmuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_baocao_sachchuaduocmuon.Designer.cs">
+      <DependentUpon>frm_baocao_sachchuaduocmuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frm_baocao_sachsaphet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frm_baocao_sachsaphet.Designer.cs">
+      <DependentUpon>frm_baocao_sachsaphet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frm_capnhat_docgia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +162,12 @@
     <Compile Include="Views\frm_timkiem_sach.Designer.cs">
       <DependentUpon>frm_timkiem_sach.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\sub_frm_them_soluongsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\sub_frm_them_soluongsach.Designer.cs">
+      <DependentUpon>sub_frm_them_soluongsach.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +181,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\frm_baocao_docgiamuonquahan.resx">
+      <DependentUpon>frm_baocao_docgiamuonquahan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_baocao_sachchuaduocmuon.resx">
+      <DependentUpon>frm_baocao_sachchuaduocmuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frm_baocao_sachsaphet.resx">
+      <DependentUpon>frm_baocao_sachsaphet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\sub_frm_them_soluongsach.resx">
+      <DependentUpon>sub_frm_them_soluongsach.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="QL_Thu_Vien.dbml.layout">
       <DependentUpon>QL_Thu_Vien.dbml</DependentUpon>
     </None>
